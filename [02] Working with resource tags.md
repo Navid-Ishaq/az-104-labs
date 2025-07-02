@@ -63,8 +63,6 @@
 
 ---
 ---
-Here's a structured and professional summary for the Azure Lab on Resource Tagging:
-
 ---
 ## **📘 Azure Lab Summary: Organizing Azure Resources Using Tags**
 

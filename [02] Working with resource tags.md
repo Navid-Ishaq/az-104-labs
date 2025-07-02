@@ -64,3 +64,55 @@
 ---
 ---
 ---
+## **📘 Azure Lab Summary: Organizing Azure Resources Using Tags**
+
+---
+
+### **🎯 Purpose of the Lab**
+
+The objective of this lab is to demonstrate how to effectively organize and manage Azure resources using **resource tags**. Through the deployment of a virtual machine and the application of tags at the resource level, this lab teaches how tagging enhances **resource categorization**, **cost tracking**, and **administrative control**. It also shows how to **filter and locate** resources based on tag values, a key skill for managing large-scale environments efficiently.
+
+---
+
+### **🛠 Azure Tools and Services Used**
+
+#### 1. **Azure Portal**
+
+* **Description**: A web-based interface to create, manage, and monitor Azure services.
+* **Role in the Lab**: Used to create the virtual machine, apply tags, and perform filtering actions — the central interface for completing all tasks.
+
+#### 2. **Virtual Machine (VM)**
+
+* **Description**: A scalable compute resource that allows you to run applications and services on a virtualized server.
+* **Role in the Lab**: Serves as the main resource to which tags are applied. Demonstrates how to organize and manage compute resources with metadata.
+
+#### 3. **Resource Group**
+
+* **Description**: A container in Azure that holds related resources for a solution.
+* **Role in the Lab**: Hosts the virtual machine and provides a scope for managing the VM and its tags. Tag filtering is demonstrated within the resource group context.
+
+#### 4. **Resource Tags**
+
+* **Description**: Key-value pairs assigned to Azure resources for metadata organization (e.g., `Department: IT`).
+* **Role in the Lab**: Central to the lab objective. Tags are applied to the VM and later used to **filter resources** in the portal, helping with organization, automation, and cost management.
+
+#### 5. **Tag-Based Filtering**
+
+* **Description**: A search and filter capability within the Azure Portal to locate resources based on specific tag values.
+* **Role in the Lab**: Used to demonstrate how tags enable efficient resource discovery and management when dealing with multiple assets.
+
+---
+
+### **🔑 Real-World Relevance**
+
+Tagging is widely used in production environments to:
+
+* Track **costs per department or project**,
+* Enforce **governance policies**,
+* Automate resource management via **Azure Policy** or **scripts**.
+
+Mastering tagging and resource filtering is essential for **Azure Administrators**, **Cloud Architects**, and **DevOps Engineers** who manage complex cloud infrastructures.
+
+---
+---
+---

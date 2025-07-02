@@ -110,5 +110,73 @@ The purpose of this lab is to provide hands-on experience with deploying a virtu
 This lab not only demonstrates how to deploy a basic virtual machine but also introduces governance tools like Azure resource locks, providing foundational knowledge in protecting and managing cloud infrastructure effectively.
 
 ---
+---
+---
+## **🏢 Scenario: Securing a Production VM for a Financial Services App**
 
+**Meet Aisha**, a cloud engineer working for **FinSecure Ltd.**, a mid-sized financial services company. Her team is tasked with deploying a new backend **Ubuntu server** in Azure, which will run core APIs for the company's mobile banking app. Because of the sensitivity of financial data and regulatory requirements, any accidental deletion or modification of infrastructure could lead to downtime, data loss, or compliance issues.
+
+To avoid these risks, Aisha decides to follow a **cloud governance strategy** by deploying the VM and applying **resource locks** — a native Azure feature to protect mission-critical resources from accidental or unauthorized actions.
+
+---
+
+### **🔧 Step-by-Step Story**
+
+### **1. Deploying the Virtual Machine**
+
+Aisha logs into the **Azure Portal** and starts by clicking **Create a resource**. She selects **Virtual Machine**, giving it the name **MyLabVM** and placing it under the **rg-labresources** resource group.
+
+She chooses:
+
+* **Ubuntu Server 20.04 LTS Gen2** as the operating system to ensure stability and long-term support,
+* A modestly sized **B2s VM** to optimize costs during the testing phase,
+* And sets up credentials using a **secure password-based login** with a non-admin username `LabUser`.
+
+In the **Disks** section, she selects **Standard SSD** to balance performance and cost. After reviewing all settings, she clicks **Create**.
+
+✅ **Why it matters**: A well-configured VM provides the compute power for her APIs, but without protection, it's vulnerable to unintended actions.
+
+---
+
+### **2. Applying a Delete Lock to the VM**
+
+Now that the VM is running, Aisha wants to **prevent any team member from accidentally deleting it** — especially during cleanup tasks or automation runs.
+
+She opens the VM in the Azure Portal, navigates to **Settings > Locks**, and adds a new lock:
+
+* **Name**: `VMDeleteLock`
+* **Type**: `Delete`
+
+✅ **Benefit**: Even users with high-level access can't delete the VM unless the lock is removed. This is crucial for safeguarding production workloads.
+
+---
+
+### **3. Applying a Read-Only Lock on the Resource Group**
+
+Next, Aisha wants to go a step further: **freeze the entire resource group** to prevent any modifications during a company audit next week.
+
+She navigates to the **rg-labresources** resource group, goes to **Locks**, and adds another lock:
+
+* **Name**: `RGReadOnly`
+* **Type**: `Read-only`
+
+✅ **Impact**: Now, nothing in the group — not even the VM’s network interface or disk — can be changed, deleted, or altered. Azure enforces this lock across the board.
+
+---
+
+### **🧠 Real-World Relevance**
+
+Aisha’s actions reflect **best practices in cloud governance** — especially in industries like finance, healthcare, or government where **uptime, data integrity, and change control** are non-negotiable. By using **Azure Resource Locks**, she's proactively **reducing risk**, ensuring **regulatory compliance**, and building **trust with stakeholders**.
+
+---
+
+### **🧼 Final Cleanup**
+
+Once the audit period ends or the infrastructure is no longer needed, Aisha removes the locks and proceeds to shut down the environment.
+
+---
+
+**Delete all the resources.**
+
+---
 

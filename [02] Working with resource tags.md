@@ -116,3 +116,72 @@ Mastering tagging and resource filtering is essential for **Azure Administrators
 ---
 ---
 ---
+Here's a **practical and professional story** that brings the **Azure resource tagging lab** to life through a relatable real-world scenario:
+
+---
+
+## **🏢 Scenario: Managing Departmental Cloud Costs in a Growing Tech Company**
+
+**Meet Imran**, a cloud operations engineer at **CloudSmart Solutions**, a growing SaaS company offering business intelligence tools to multiple clients. As the organization scales, multiple departments—**IT, HR, Marketing, and Development**—are requesting new virtual machines in Azure for running demos, analytics jobs, and internal tools.
+
+After several months, leadership starts noticing unpredictable spikes in the monthly Azure billing. When asked which departments are consuming the most cloud resources, Imran realizes that there's **no clear way to categorize or filter resources** based on ownership or purpose.
+
+To solve this issue, Imran decides to implement a **resource tagging strategy** using Azure’s native features. He begins by deploying a new **Windows Server 2019 virtual machine**, and then attaches a **tag** to identify the department using the resource. This helps align usage with cost accountability.
+
+---
+
+### **🔧 Step-by-Step: What Imran Does and Why**
+
+---
+
+### **1. Deploying the Virtual Machine**
+
+Imran logs into the **Azure Portal** and navigates to **Virtual Machines**. He clicks **+ Create** to provision a new VM named `resizeVM`, selecting **Windows Server 2019 Datacenter** as the image. He places it under the resource group `rg-labresources`, located in the **East US** region.
+
+* He sets a **Standard B1s size** to minimize cost.
+* Enters credentials to allow secure remote access.
+* Chooses **Standard SSD** for the OS disk to balance performance and cost.
+
+🧠 **Why it matters**: This VM will be used for an internal IT tool, so tagging it now will make it easier to trace usage and allocate costs later.
+
+---
+
+### **2. Applying Tags to the VM**
+
+After deployment, Imran opens the VM settings and navigates to the **Tags** section. He creates a tag:
+
+* **Name**: `Department`
+* **Value**: `IT`
+
+✅ **Impact**: Now this resource is clearly marked as owned by the IT department. In billing reports or dashboards, it will show up under that tag.
+
+---
+
+### **3. Filtering Resources by Tag**
+
+To demonstrate the power of tagging, Imran goes back to the **Resource Groups** section in the Azure Portal, selects `rg-labresources`, and clicks **Add Filters**. He filters by the tag `Department = IT`.
+
+🔍 He now sees a filtered list of resources used by the IT team only — perfect for:
+
+* Reviewing assets,
+* Estimating departmental cost impact,
+* Reporting to management.
+
+---
+
+### **📈 Business Impact**
+
+Thanks to tagging:
+
+* **Finance** can now generate more accurate departmental billing.
+* **Operations** can identify unused or over-provisioned resources.
+* **Governance** is easier to enforce — automation tools like Azure Policy can use these tags to control access, apply policies, or trigger alerts.
+
+What started as a small VM deployment is now part of a **larger resource management strategy** that supports transparency, accountability, and better cloud cost control across the business.
+
+---
+
+**Delete all the resources.**
+
+---
+

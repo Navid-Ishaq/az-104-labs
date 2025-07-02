@@ -184,4 +184,152 @@ What started as a small VM deployment is now part of a **larger resource managem
 **Delete all the resources.**
 
 ---
+---
+---
+## **Lab-Based MCQs (Exam-Style, Concept-Focused)**
+
+---
+
+### 1. What is the primary benefit of using **tags** in Azure?
+
+(a) Encrypt virtual machines
+(b) Set RBAC permissions
+(c) Organize resources for cost management and filtering
+(d) Prevent accidental deletion of resources
+
+**Correct answer: (c)**
+**Explanation**: Tags are used to logically group and organize Azure resources. They help with cost tracking, automation, filtering, and reporting.
+
+---
+
+### 2. You’ve applied a tag `Department = HR` to multiple Azure resources. What is the best way to find all such resources in the portal?
+
+(a) Use Azure Policy
+(b) Use Azure Monitor
+(c) Use tag-based filtering in the Resource Groups view
+(d) Use Azure Advisor
+
+**Correct answer: (c)**
+**Explanation**: The Azure Portal allows filtering resources using tag values, making it easy to locate all resources associated with a specific department or purpose.
+
+---
+
+### 3. Which Azure tool allows you to create and manage virtual machines through a visual interface?
+
+(a) Azure CLI
+(b) Azure Portal
+(c) Azure PowerShell
+(d) Azure Resource Graph
+
+**Correct answer: (b)**
+**Explanation**: The Azure Portal is a web-based graphical UI that enables users to deploy and manage Azure resources visually, including VMs and tags.
+
+---
+
+### 4. You need to track resource usage per department for internal billing. What Azure feature helps accomplish this?
+
+(a) Role-Based Access Control (RBAC)
+(b) Availability Zones
+(c) Tags
+(d) Virtual Networks
+
+**Correct answer: (c)**
+**Explanation**: Tags can be used to label resources (e.g., by department), which can then be used in cost analysis tools like Azure Cost Management.
+
+---
+
+### 5. After applying tags to resources, which Azure service can generate cost reports grouped by those tags?
+
+(a) Azure Advisor
+(b) Azure Policy
+(c) Azure Cost Management
+(d) Azure Monitor
+
+**Correct answer: (c)**
+**Explanation**: Azure Cost Management supports tag-based cost breakdowns, enabling organizations to allocate spending by project, team, or department.
+
+---
+
+### 6. Which of the following resources can be tagged in Azure?
+
+(a) Virtual machines only
+(b) Resource groups only
+(c) Most Azure resources including VMs, storage accounts, and resource groups
+(d) Only networking resources
+
+**Correct answer: (c)**
+**Explanation**: Tags can be applied to most Azure resource types, allowing broad support for metadata-driven organization.
+
+---
+
+### 7. What is the structure of an Azure tag?
+
+(a) Value only
+(b) Role assignment
+(c) Key-value pair
+(d) XML block
+
+**Correct answer: (c)**
+**Explanation**: Tags in Azure are applied as key-value pairs, such as `Environment = Production`, to help identify and manage resources.
+
+---
+
+### 8. Which service is used to deploy infrastructure like virtual machines in Azure?
+
+(a) Azure AD
+(b) Azure Compute
+(c) Azure SQL
+(d) Azure DevOps
+
+**Correct answer: (b)**
+**Explanation**: Azure Compute is the service category that provides the capability to run virtual machines, containers, and other compute workloads.
+
+---
+
+### 9. You want to apply the same tag to multiple resources quickly. Which method would be most efficient?
+
+(a) Tag each resource manually in the Azure Portal
+(b) Use a calculator tool
+(c) Use Azure CLI or PowerShell script
+(d) Reboot all VMs
+
+**Correct answer: (c)**
+**Explanation**: Scripting tools like Azure CLI and PowerShell can automate the tagging of multiple resources, which is efficient and scalable.
+
+---
+
+### 10. How do tags enhance Azure governance in an enterprise environment?
+
+(a) By preventing DDoS attacks
+(b) By improving bandwidth
+(c) By enabling structured management, cost control, and automation
+(d) By speeding up VM provisioning
+
+**Correct answer: (c)**
+**Explanation**: Tags contribute to better governance by enabling structured organization, applying policies, and tracking costs across large environments.
+
+---
+### **11. In Azure, how does the platform handle tag *names* with different cases (e.g., `Environment` vs `environment`)?**
+
+(a) They are stored as two separate tags
+(b) Azure treats them as duplicate and merges them
+(c) It raises an error during deployment
+(d) Tags must always be lowercase in Azure
+
+**Correct answer: (b)**
+**Explanation**: Azure treats tag names as **case-insensitive**, so `Environment` and `environment` refer to the same tag key. If applied, the last value overwrites the previous one.
+
+---
+
+### **12. Which of the following is true about Azure tag *values*?**
+
+(a) They are case-insensitive like tag names
+(b) Azure blocks values with uppercase letters
+(c) They are case-sensitive and treated as distinct
+(d) Azure converts all tag values to lowercase
+
+**Correct answer: (c)**
+**Explanation**: Tag **values** in Azure are **case-sensitive**, meaning `IT` and `it` are treated as different values — important when filtering or generating cost reports.
+
+---
 

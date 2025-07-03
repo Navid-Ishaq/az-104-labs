@@ -215,126 +215,125 @@ Through this lab, Naveed implemented a foundational **alerting strategy using Az
 
 ---
 ---
----
 
 ---
 
 ### 1. What is the main purpose of configuring alert rules on a virtual machine in Azure?
 
-**(a)** Improve performance
-**(b)** Enable auto-scaling
-**(c)** Notify stakeholders about specific events
-**(d)** Encrypt VM data
+**(a)** Improve performance  
+**(b)** Enable auto-scaling  
+**(c)** Notify stakeholders about specific events  
+**(d)** Encrypt VM data  
 
-**✅ Correct answer: (c)**
+**✅ Correct answer: (c)**  
 **Explanation**: Alert rules are used to detect and respond to specific actions or thresholds, such as administrative operations, by sending notifications to relevant users or teams.
 
 ---
 
 ### 2. Which Azure feature defines where and how alert notifications are delivered?
 
-**(a)** Azure Log Analytics
-**(b)** Action Groups
-**(c)** Resource Locks
-**(d)** Diagnostic Settings
+**(a)** Azure Log Analytics  
+**(b)** Action Groups  
+**(c)** Resource Locks  
+**(d)** Diagnostic Settings  
 
-**✅ Correct answer: (b)**
+**✅ Correct answer: (b)**  
 **Explanation**: Action Groups allow you to specify the notification channels (email, SMS, webhook) that should be triggered when an alert condition is met.
 
 ---
 
 ### 3. What type of signal should you use to track actions like restarting a VM?
 
-**(a)** Metric
-**(b)** Diagnostic
-**(c)** Activity Log
-**(d)** Network Trace
+**(a)** Metric  
+**(b)** Diagnostic  
+**(c)** Activity Log  
+**(d)** Network Trace  
 
-**✅ Correct answer: (c)**
+**✅ Correct answer: (c)**  
 **Explanation**: Activity log signals capture control-plane operations like start, stop, and restart, making them ideal for auditing administrative activity.
 
 ---
 
 ### 4. Why is it recommended to block public inbound ports during VM creation?
 
-**(a)** To increase performance
-**(b)** To reduce billing
-**(c)** To minimize security risks
-**(d)** To support backup policies
+**(a)** To increase performance  
+**(b)** To reduce billing  
+**(c)** To minimize security risks  
+**(d)** To support backup policies  
 
-**✅ Correct answer: (c)**
+**✅ Correct answer: (c)**  
 **Explanation**: Blocking public inbound ports limits external exposure, reducing the risk of unauthorized access and enhancing security.
 
 ---
 
 ### 5. What is the purpose of selecting “All Administrative operations” as a condition in an alert?
 
-**(a)** To monitor disk usage
-**(b)** To notify when a VM is resized or restarted
-**(c)** To collect cost metrics
-**(d)** To manage storage tiers
+**(a)** To monitor disk usage  
+**(b)** To notify when a VM is resized or restarted  
+**(c)** To collect cost metrics  
+**(d)** To manage storage tiers  
 
-**✅ Correct answer: (b)**
+**✅ Correct answer: (b)**  
 **Explanation**: This condition captures all user-initiated operations such as VM start, stop, and restart for audit and monitoring purposes.
 
 ---
 
 ### 6. How can email alerts benefit system administrators?
 
-**(a)** They reduce VM boot time
-**(b)** They block failed logins
-**(c)** They provide immediate notification of important actions
-**(d)** They auto-correct VM issues
+**(a)** They reduce VM boot time  
+**(b)** They block failed logins  
+**(c)** They provide immediate notification of important actions  
+**(d)** They auto-correct VM issues  
 
-**✅ Correct answer: (c)**
+**✅ Correct answer: (c)**  
 **Explanation**: Email notifications ensure that administrators are promptly informed about critical operations or changes that require attention.
 
 ---
 
 ### 7. What defines the resource that an alert rule applies to?
 
-**(a)** Action Group
-**(b)** Condition
-**(c)** Scope
-**(d)** Subscription tier
+**(a)** Action Group  
+**(b)** Condition  
+**(c)** Scope  
+**(d)** Subscription tier  
 
-**✅ Correct answer: (c)**
+**✅ Correct answer: (c)**  
 **Explanation**: The scope identifies the specific Azure resource (e.g., a virtual machine) that the alert is monitoring.
 
 ---
 
 ### 8. Why might Activity Log alerts be preferred over Metric alerts in governance scenarios?
 
-**(a)** They’re easier to configure
-**(b)** They track system-level performance
-**(c)** They capture control-plane operations
-**(d)** They don’t require action groups
+**(a)** They’re easier to configure  
+**(b)** They track system-level performance  
+**(c)** They capture control-plane operations  
+**(d)** They don’t require action groups  
 
-**✅ Correct answer: (c)**
+**✅ Correct answer: (c)**  
 **Explanation**: Activity Log alerts monitor who did what and when — making them ideal for governance and compliance tracking.
 
 ---
 
 ### 9. Which Azure service integrates alert rules, metrics, and diagnostic settings?
 
-**(a)** Azure Monitor
-**(b)** Azure DevOps
-**(c)** Azure Firewall
-**(d)** Azure Cost Management
+**(a)** Azure Monitor  
+**(b)** Azure DevOps  
+**(c)** Azure Firewall  
+**(d)** Azure Cost Management  
 
-**✅ Correct answer: (a)**
+**✅ Correct answer: (a)**  
 **Explanation**: Azure Monitor provides a centralized platform for managing metrics, logs, and alerts across all Azure resources.
 
 ---
 
 ### 10. After restarting a virtual machine with an alert rule in place, what confirms that the alert is functioning?
 
-**(a)** A new VM is created
-**(b)** Email notification is received
-**(c)** The VM auto-scales
-**(d)** The alert is deleted
+**(a)** A new VM is created  
+**(b)** Email notification is received  
+**(c)** The VM auto-scales  
+**(d)** The alert is deleted  
 
-**✅ Correct answer: (b)**
+**✅ Correct answer: (b)**  
 **Explanation**: Receiving the alert email after performing the configured action (e.g., a restart) confirms that the alert rule and action group are working as intended.
 
 ---

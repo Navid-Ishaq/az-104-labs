@@ -179,4 +179,129 @@ Once the audit period ends or the infrastructure is no longer needed, Aisha remo
 **Delete all the resources.**
 
 ---
+---
+---
+## Lab-Based Conceptual MCQs
+
+---
+
+### 1. What is the primary purpose of applying a **Delete Lock** to an Azure resource?
+
+**(a)** To prevent unauthorized access to a VM  
+**(b)** To improve VM performance during scaling  
+**(c)** To stop the resource from being accidentally or intentionally deleted  
+**(d)** To reduce the billing costs for that resource  
+
+**Correct answer: (c)**  
+**Explanation**: A Delete Lock ensures that a resource cannot be deleted until the lock is removed, making it useful for protecting critical infrastructure.
+
+---
+
+### 2. Which Azure feature allows you to **restrict both updates and deletions** of a resource?
+
+**(a)** Network Security Groups  
+**(b)** Resource Policies  
+**(c)** Read-Only Lock  
+**(d)** Role-Based Access Control (RBAC)
+
+**Correct answer: (c)**  
+**Explanation**: A Read-Only Lock prevents any modifications or deletions to the resource, effectively making it view-only until the lock is removed.
+
+---
+
+### 3. How do Azure **Resource Locks** differ from **RBAC (Role-Based Access Control)**?
+
+**(a)** Locks control access; RBAC prevents deletion  
+**(b)** Locks apply to billing roles; RBAC applies to admin users  
+**(c)** RBAC defines *who* can perform actions, while locks control *what* actions can happen, regardless of role  
+**(d)** There is no difference; both are used to prevent access  
+
+**Correct answer: (c)**  
+**Explanation**: RBAC is identity-based access control, while resource locks enforce restrictions at the resource level regardless of the user’s role or permissions.
+
+---
+
+### 4. What happens when a **Delete Lock** is applied to a virtual machine?
+
+**(a)** The VM becomes read-only  
+**(b)** The VM can’t be stopped or restarted  
+**(c)** The VM cannot be deleted until the lock is removed  
+**(d)** All traffic to the VM is blocked
+
+**Correct answer: (c)**  
+**Explanation**: A Delete Lock specifically prevents the deletion of the resource it is applied to. Other operations like restarting or accessing are still allowed.
+
+---
+
+### 5. Why would an organization apply a **Read-Only Lock** on a **resource group** instead of on individual resources?
+
+**(a)** It ensures encryption is enabled  
+**(b)** It applies consistent protection to all resources in that group  
+**(c)** It improves VM availability  
+**(d)** It prevents the resource group from resizing
+
+**Correct answer: (b)**  
+**Explanation**: Applying a lock at the resource group level ensures that all resources within the group are protected under the same policy without setting individual locks.
+
+---
+
+### 6. If a contributor has permission to delete a VM, but a **Delete Lock** exists on that VM, what will happen?
+
+**(a)** The delete operation will succeed because of the contributor role  
+**(b)** The delete operation will be blocked due to the lock  
+**(c)** The VM will restart instead of deleting  
+**(d)** A backup of the VM will be created automatically
+
+**Correct answer: (b)**  
+**Explanation**: Resource Locks override RBAC permissions. Even with delete permissions, the contributor cannot delete the VM unless the lock is removed.
+
+---
+
+### 7. What is a key benefit of using **Azure Resource Locks** in a production environment?
+
+**(a)** Automatically scales resources based on traffic  
+**(b)** Reduces cost by limiting resource size  
+**(c)** Prevents accidental deletion or changes to critical infrastructure  
+**(d)** Encrypts data stored on the virtual machine
+
+**Correct answer: (c)**  
+**Explanation**: Resource Locks are commonly used to safeguard mission-critical workloads by preventing changes or deletions without administrator oversight.
+
+---
+
+### 8. Which of the following is **true** about Azure Resource Locks?
+
+**(a)** They can only be applied by global administrators  
+**(b)** They are inherited by child resources only in subscriptions  
+**(c)** They can be applied at resource, resource group, or subscription level  
+**(d)** They apply only to storage and compute services
+
+**Correct answer: (c)**  
+**Explanation**: Locks can be applied at various scopes — individual resources, resource groups, or even across an entire subscription — making them versatile for governance.
+
+---
+
+### 9. What is the outcome of applying a **Read-Only Lock** to a resource group that contains multiple VMs and storage accounts?
+
+**(a)** All resources can still be modified individually  
+**(b)** All resources become editable but not deletable  
+**(c)** All modification and deletion actions are blocked on all contained resources  
+**(d)** The lock only applies to newly added resources in the group
+
+**Correct answer: (c)**  
+**Explanation**: A Read-Only Lock on a resource group cascades to all resources within, making them unmodifiable unless the lock is removed.
+
+---
+
+### 10. In a DevOps pipeline, how can a **resource lock cause a deployment to fail**?
+
+**(a)** It blocks new subscription creation  
+**(b)** It causes IP address conflicts  
+**(c)** It prevents updates or deletions of existing locked resources  
+**(d)** It slows down the build process
+
+**Correct answer: (c)**  
+**Explanation**: If a pipeline tries to update or delete a locked resource, the operation will fail, as the lock enforces protection against those actions regardless of deployment method.
+
+---
 

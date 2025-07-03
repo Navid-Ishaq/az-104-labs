@@ -215,7 +215,8 @@ Through this lab, Naveed implemented a foundational **alerting strategy using Az
 
 ---
 ---
-
+---
+Lab-Based Conceptual MCQs
 ---
 
 ### 1. What is the main purpose of configuring alert rules on a virtual machine in Azure?

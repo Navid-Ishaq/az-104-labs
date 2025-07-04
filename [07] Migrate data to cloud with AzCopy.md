@@ -8,33 +8,6 @@ Azure Lab Instructions: Migrate Data to Cloud with AzCopy
 After logging in with your credentials:
 
 Step 1: Create a Storage Account
-In the Azure Portal, search for Storage accounts in the top search bar and select it.
-
-Click + Create.
-
-Under the Basics tab:
-
-Resource group: Select rg_eastus_XXXXX
-
-Storage account name: Enter a globally unique name (e.g., whizstorage<yourname>)
-
-Region: Select East US
-
-Performance: Select Standard
-
-Redundancy: Select Geo-redundant storage (GRS)
-
-Go to the Advanced tab and set Hierarchical namespace to Enabled.
-
-Click Review + Create, then click Create.
-
-Once deployment is complete, select Go to resource.
-
-From the left menu, choose Containers and click + Container.
-
-Name the container democontainer and click Create.
-
-Step 2: Download and Configure AzCopy
 
 ---
 ---

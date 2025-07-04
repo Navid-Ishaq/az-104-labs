@@ -57,7 +57,10 @@
 
 Delete all the resources.
 
+# Lab 10: Create a Windows VM using an ARM template
 
+**Duration:** 30m
+```
 
 
 

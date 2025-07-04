@@ -139,6 +139,77 @@ By completing this lab, learners develop practical understanding of **Azure Stor
 ---
 ---
 ---
+### **Scenario: Implementing Azure Storage for Business Continuity at Contoso Ltd.**
+
+**Contoso Ltd.**, a mid-sized digital services company, recently decided to migrate its file storage and document hosting services to the cloud for better **scalability**, **security**, and **cost management**. Sarah, a **Cloud Engineer**, was tasked with setting up the required **Azure Storage** infrastructure to support internal team collaboration and application-level storage needs.
+
+---
+
+### **Step-by-Step Use Case**
+
+After logging in with her credentials, Sarah begins configuring the cloud storage environment.
+
+#### **Step 1: Understand Storage Requirements**
+
+Sarah first reviews the types of **Azure Storage performance tiers** and **redundancy models**. Since the application deals with frequently accessed documents and doesn't require premium speed, she opts for the **Standard performance** tier. To ensure cost-effective redundancy within a single region, she chooses **Locally-redundant storage (LRS)**.
+
+She also notes the available **access tiers**:
+
+* **Hot** for frequently accessed data.
+* **Cool** for infrequently accessed data.
+* **Cold** for rarely accessed data with longer retention.
+  These access tiers will help manage costs across different storage use cases.
+
+---
+
+#### **Step 2: Create a Storage Account**
+
+Using the **Azure Portal**, Sarah navigates to **Storage accounts** and creates a new account named **mystorageaccsarah** under the company’s resource group. She configures it with **Standard performance**, **East US region**, and **LRS redundancy**, leaving other settings default. This account will serve as the base for managing files and blobs.
+
+---
+
+#### **Step 3: Create a Container for Blob Storage**
+
+Next, Sarah creates a **container** named **mycontainer25**. This will be used to store **blob objects** like HTML files, PDFs, and images that the team shares through internal tools.
+
+---
+
+#### **Step 4: Upload a Blob Object**
+
+Sarah creates a simple **HTML** file on her local machine and uploads it into the blob container using the **Upload** feature. This file could represent documentation or a static web resource accessed via other Azure services or users with proper access.
+
+---
+
+#### **Step 5: Create a File Share**
+
+For teams that need traditional shared drives, Sarah creates an **Azure File Share** named **myfile123** in the **Hot tier**. This allows users to mount the file share from virtual machines or on-premises systems using **SMB protocol**.
+
+---
+
+#### **Step 6: Upload Files to File Share**
+
+Sarah uploads a sample **spreadsheet** to the file share, which users in the finance team will use collaboratively. This file could later be accessed directly through mapped network drives or integrated applications.
+
+---
+
+### **Business Impact**
+
+By completing this setup:
+
+* Sarah enables secure, cloud-based file hosting with **redundancy**.
+* Teams can collaborate in real-time with **file shares**.
+* Developers and apps can retrieve static content through **blob containers**.
+* Costs are controlled through thoughtful selection of **tiers** and **replication** options.
+
+This foundational setup supports Contoso’s move toward a modern, cloud-native infrastructure while maintaining business continuity and cost efficiency.
+
+---
+
+**Delete all the resources.**
+
+---
+---
+---
 ## Lab-Based Conceptual MCQs
 
 ### 1. What is the primary use case of an **Azure Storage Account**?

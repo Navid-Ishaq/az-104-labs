@@ -4,162 +4,57 @@
 
 ```
 ---
-
-# Azure Lab Instructions: Migrate Data to Cloud with AzCopy
-
-**After logging in with your credentials:**
-
----
-
-## Step 1: Create a Storage Account
-
-1. In the Azure Portal, search for **Storage accounts** in the top search bar and select it.
-2. Click **+ Create**.
-3. Under the **Basics** tab:
-
-   * **Resource group**: Select `rg_eastus_XXXXX`
-   * **Storage account name**: Enter a globally unique name (e.g., `whizstorage<yourname>`)
-   * **Region**: Select `East US`
-   * **Performance**: Select `Standard`
-   * **Redundancy**: Select `Geo-redundant storage (GRS)`
-4. Go to the **Advanced** tab and set **Hierarchical namespace** to **Enabled**.
-5. Click **Review + Create**, then click **Create**.
-6. Once deployment is complete, select **Go to resource**.
-7. From the left menu, choose **Containers** and click **+ Container**.
-8. Name the container `democontainer` and click **Create**.
-
----
-
-## Step 2: Download and Configure AzCopy
-
-1. Download AzCopy from the official link:
-   [https://aka.ms/downloadazcopy-v10-windows](https://aka.ms/downloadazcopy-v10-windows)
-2. Extract the downloaded ZIP file to a local folder.
-3. Open **Command Prompt** and navigate to the extracted folder using:
-
-   ```
-   cd <path-to-azcopy-folder>
-   ```
-4. Authenticate AzCopy with:
-
-   ```
-   azcopy login
-   ```
-5. Open the browser as instructed in the output, enter the given code, and log in.
-
----
-
-## Step 3: Upload Files to Azure Blob Storage
-
-1. Prepare your local folder with the files you want to upload.
-2. Run the following command to copy files recursively:
-
-   ```
-   azcopy copy "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
-   ```
-3. Go back to the Azure Portal and confirm the files appear in the container.
-
----
-
-## Step 4: Modify and Sync Data for Testing
-
-1. Add or modify a file in your local folder.
-2. Run the sync command to update Blob Storage:
-
-   ```
-   azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
-   ```
-3. Confirm the changes in the Azure container.
-
----
-
-## Step 5: Create a Scheduled Task for Automated Sync
-
-1. Open Notepad and paste the sync command from Step 4, updating the paths as needed.
-2. Save the file as `script.bat` (e.g., `C:\script.bat`).
-3. Open **Command Prompt as Administrator** and create a scheduled task:
-
-   ```
-   schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
-   ```
-4. Add a new file to your local folder and wait for the task to run and sync the file.
-
----
-
-## Step 6: Final Step
-
-**Delete all the resources.**
-
----
----
-
-## **Lab Summary: Migrate Data to Cloud with AzCopy**
-
-### **Purpose of the Lab**
-
-The purpose of this lab is to demonstrate how to **migrate on-premises data to Azure Blob Storage** using **AzCopy**, a powerful command-line utility. Learners will gain hands-on experience in configuring a **storage account**, creating **Blob containers**, uploading and syncing files using **AzCopy**, and automating transfers with **Windows Task Scheduler**. The lab showcases a real-world scenario of securely transferring data to the cloud using efficient, scriptable methods.
-
----
-
-## **Azure Tools Used in the Lab**
-
-### 1. **Azure Portal**
-
-* **Description**: A browser-based interface for managing Azure resources.
-* **Role in Lab**: Used to create and manage the **Storage account** and **Blob containers**, and to verify that files have been successfully uploaded.
-
----
-
-### 2. **Azure Storage Account**
-
-* **Description**: A fundamental service in Azure used to store data objects such as blobs, files, queues, tables, and disks.
-* **Role in Lab**: Serves as the target destination for data being migrated. A new **Storage account** is created to host the **Blob container** where files are uploaded.
-
----
-
-### 3. **Azure Blob Storage**
-
-* **Description**: A service for storing large amounts of unstructured data such as text or binary data.
-* **Role in Lab**: A **Blob container** within the **Storage account** is created to hold the uploaded files. It supports scalable and secure object storage.
-
----
-
-### 4. **AzCopy**
-
-* **Description**: A command-line utility designed to copy data to and from Microsoft Azure Blob, File, and Table storage.
-* **Role in Lab**: The core tool used to perform data transfer operations. Learners use **AzCopy** to:
-
-  * Log in and authenticate
-  * Upload files from a local folder to Azure Blob Storage
-  * Sync updated files from the local source
-  * Script and automate these transfers
-
----
-
-### 5. **Hierarchical Namespace (HNS)**
-
-* **Description**: An advanced feature in Azure Data Lake Storage Gen2 that allows directory-like file system structures within Blob Storage.
-* **Role in Lab**: Enabled during storage account creation to support **Data Lake Gen2** features, which are often required for enterprise-scale data operations.
-
----
-
-### 6. **Windows Command Prompt**
-
-* **Description**: A terminal interface on Windows used for executing command-line tools and scripts.
-* **Role in Lab**: Used to run **AzCopy** commands and navigate the local filesystem for file transfer operations.
-
----
-
-### 7. **Windows Task Scheduler**
-
-* **Description**: A Windows tool that allows users to automate the launching of programs or scripts at predefined times or events.
-* **Role in Lab**: Used to create a scheduled task that runs an **AzCopy** script every 5 minutes. This simulates an automated, recurring data sync process.
-
----
-
-## **Conclusion**
-
-This lab integrates key Azure services with automation tools to provide a practical approach for migrating and synchronizing data to the cloud. By completing the steps, learners gain critical insights into **cloud storage management**, **secure data transfer**, and **automation using scripting tools**.
+________________________________________
+Azure Lab Instructions: Migrate Data to Cloud with AzCopy
+After logging in with your credentials:
+________________________________________
+Step 1: Create a Storage Account
+1.	In the Azure Portal, search for Storage accounts in the top search bar and select it.
+2.	Click + Create.
+3.	Under the Basics tab:
+o	Resource group: Select rg_eastus_XXXXX
+o	Storage account name: Enter a globally unique name (e.g., whizstorage<yourname>)
+o	Region: Select East US
+o	Performance: Select Standard
+o	Redundancy: Select Geo-redundant storage (GRS)
+4.	Go to the Advanced tab and set Hierarchical namespace to Enabled.
+5.	Click Review + Create, then click Create.
+6.	Once deployment is complete, select Go to resource.
+7.	From the left menu, choose Containers and click + Container.
+8.	Name the container democontainer and click Create.
+________________________________________
+Step 2: Download and Configure AzCopy
+1.	Download AzCopy from the official link:
+https://aka.ms/downloadazcopy-v10-windows
+2.	Extract the downloaded ZIP file to a local folder.
+3.	Open Command Prompt and navigate to the extracted folder using:
+4.	cd <path-to-azcopy-folder>
+5.	Authenticate AzCopy with:
+6.	azcopy login
+7.	Open the browser as instructed in the output, enter the given code, and log in.
+________________________________________
+Step 3: Upload Files to Azure Blob Storage
+1.	Prepare your local folder with the files you want to upload.
+2.	Run the following command to copy files recursively:
+3.	azcopy copy "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
+4.	Go back to the Azure Portal and confirm the files appear in the container.
+________________________________________
+Step 4: Modify and Sync Data for Testing
+1.	Add or modify a file in your local folder.
+2.	Run the sync command to update Blob Storage:
+3.	azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
+4.	Confirm the changes in the Azure container.
+________________________________________
+Step 5: Create a Scheduled Task for Automated Sync
+1.	Open Notepad and paste the sync command from Step 4, updating the paths as needed.
+2.	Save the file as script.bat (e.g., C:\script.bat).
+3.	Open Command Prompt as Administrator and create a scheduled task:
+4.	schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
+5.	Add a new file to your local folder and wait for the task to run and sync the file.
+________________________________________
+Step 6: Final Step
+Delete all the resources.
+________________________________________
 
 ---
 ---

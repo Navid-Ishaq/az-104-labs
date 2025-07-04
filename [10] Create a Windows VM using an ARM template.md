@@ -1,6 +1,7 @@
 # Lab 10: Create a Windows VM using an ARM template
 
 **Duration:** 30m
+---
 
 **After logging in with your credentials:**
 
@@ -60,5 +61,79 @@
 
 Delete all the resources.
 
+Certainly. Here's a structured summary for the lab:
+
+---
+
+## **Structured Summary: Deploy a Windows VM Using an ARM Template**
+
+### **Purpose of the Lab**
+
+The purpose of this lab is to demonstrate how to deploy a **Windows Virtual Machine (VM)** using an **Azure Resource Manager (ARM) template** through the **Azure Cloud Shell**. This approach emphasizes the use of **infrastructure as code (IaC)** to automate resource deployment, enhance repeatability, and reduce manual configuration errors in cloud environments. The lab helps learners understand how declarative JSON-based templates can define and deploy complex Azure infrastructures in a consistent and scalable manner.
+
+---
+
+### **Azure Tools and Services Utilized**
+
+#### 1. **Azure Resource Manager (ARM) Template**
+
+* **Description**: A JSON file that defines the infrastructure and configuration for Azure resources.
+* **Role in Lab**: The core mechanism used to declaratively provision a **Windows VM** along with its supporting network and storage components.
+
+#### 2. **Azure Cloud Shell (Bash)**
+
+* **Description**: An interactive, browser-accessible shell for managing Azure resources using command-line tools.
+* **Role in Lab**: Used to upload the ARM template and execute the deployment command using the **Azure CLI**.
+
+#### 3. **Azure CLI**
+
+* **Description**: A cross-platform command-line tool for managing Azure resources.
+* **Role in Lab**: Executes the `az deployment group create` command to deploy resources defined in the **ARM template**.
+
+#### 4. **Virtual Machine (VM)**
+
+* **Description**: A software emulation of a physical computer running Windows Server.
+* **Role in Lab**: The main compute resource deployed using the ARM template to simulate a server workload.
+
+#### 5. **Resource Group**
+
+* **Description**: A logical container that holds related Azure resources.
+* **Role in Lab**: All deployed resources (VM, network components, etc.) are created within a specific **resource group** to simplify management and cleanup.
+
+#### 6. **Virtual Network (VNet)**
+
+* **Description**: A logically isolated network in Azure where VMs and other resources can securely communicate.
+* **Role in Lab**: Provides a private network space for the VM, enabling internal and external connectivity.
+
+#### 7. **Subnet**
+
+* **Description**: A segmented range within a **VNet** that allows for more granular control over resource placement.
+* **Role in Lab**: The VM is deployed within a specific **subnet** to define its network boundaries.
+
+#### 8. **Network Interface (NIC)**
+
+* **Description**: Connects a VM to a virtual network.
+* **Role in Lab**: Associates the **VM** with the **VNet**, allowing it to send and receive network traffic.
+
+#### 9. **Network Security Group (NSG)**
+
+* **Description**: A security feature that contains inbound and outbound rules to control traffic to network interfaces.
+* **Role in Lab**: Configured with rules to allow **RDP (port 3389)** access to the VM for remote administration.
+
+#### 10. **Public IP Address**
+
+* **Description**: An externally accessible IP assigned to a resource like a VM.
+* **Role in Lab**: Enables access to the **VM** from the internet using **Remote Desktop Protocol (RDP)**.
+
+#### 11. **Storage Account**
+
+* **Description**: Provides scalable cloud storage for data including blobs, files, queues, and diagnostic logs.
+* **Role in Lab**: Used to store **boot diagnostics logs** for the deployed VM.
+
+---
+
+By combining these tools and services, this lab equips learners with the practical skills needed to automate infrastructure provisioning in Azure using a structured, reusable, and version-controllable method.
+
+---
 
 

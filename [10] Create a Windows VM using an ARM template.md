@@ -1,14 +1,3 @@
-# Lab 10: Create a Windows VM using an ARM template
-
-**Duration:** 30m
-
-```
-
-
-
-
-
-
 
 After logging in with your credentials:
 

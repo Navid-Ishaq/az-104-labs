@@ -3,6 +3,7 @@
 **Duration:** 30m
 
 ```
+
 After logging in with your credentials:
 
 ### Step 1: Explore the ARM Template

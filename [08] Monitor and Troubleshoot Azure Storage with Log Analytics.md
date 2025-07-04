@@ -116,6 +116,7 @@
 **Delete all the resources.**
 
 ---
+---
 ### **Structured Summary: Monitor and Troubleshoot Azure Storage with Log Analytics**
 
 ---
@@ -167,6 +168,7 @@ The primary objective of this lab is to demonstrate how to **monitor** and **tro
 
 This lab integrates these tools to simulate a realistic monitoring workflow for cloud storage systems, equipping learners with practical skills in visibility, auditing, and incident analysis.
 
+---
 ---
 ### **Real-World Scenario: Monitoring Azure Blob Storage with Log Analytics**
 
@@ -261,6 +263,7 @@ By using **Azure Storage**, **Blob Containers**, **Diagnostic Settings**, and **
 
 This scenario showcases how real-world engineers can use Azure’s built-in tools to solve business-critical challenges with confidence, visibility, and control.
 
+---
 ---
 ## Lab-Based Conceptual MCQs
 

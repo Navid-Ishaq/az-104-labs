@@ -1,8 +1,3 @@
-# Lab 10: Create a Windows VM using an ARM template
-
-**Duration:** 30m
-
-```
 
 After logging in with your credentials:
 
@@ -61,3 +56,15 @@ After logging in with your credentials:
 ### Step 5: Delete All the Resources
 
 Delete all the resources.
+
+
+
+
+
+
+
+# Lab 10: Create a Windows VM using an ARM template
+
+**Duration:** 30m
+
+```

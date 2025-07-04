@@ -1,8 +1,8 @@
 # Lab 8: Monitor and Troubleshoot Azure Storage with Log Analytics
 
 **Duration:** 1h 0m
-
-After logging in with your credentials:
+---
+**After logging in with your credentials:**
 
 ### 1. Create a Storage Account
 

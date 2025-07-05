@@ -636,8 +636,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
 ---
 ---
 ---
-
-  {
         "Question": "1. Naveed, the Curious Cloud Explorer at LearnTechCloud, is tasked with securely uploading on-premises files to Azure. Which Azure service should he use to store the files in object format for efficient access and scalability?",
         "a": "Azure Virtual Machines",
         "b": "Azure SQL Database",
@@ -645,8 +643,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "Azure Kubernetes Service",
         "Answer": "Correct answer: (c)",
         "Explanation": "Azure Blob Storage is designed for storing large amounts of unstructured data, making it ideal for file uploads from on-premises systems."
-    },
-    {
         "Question": "2. To copy files from his local system to the Azure Blob container, which command-line utility should Naveed use for optimized, recursive file transfer?",
         "a": "PowerShell Remoting",
         "b": "Azure CLI",
@@ -654,8 +650,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "Azure Data Box",
         "Answer": "Correct answer: (c)",
         "Explanation": "AzCopy is a lightweight and high-performance tool specifically designed to upload, download, and sync data with Azure Blob Storage."
-    },
-    {
         "Question": "3. While configuring the storage account, Naveed enables the 'Hierarchical namespace'. What capability does this feature provide?",
         "a": "Support for network peering",
         "b": "Integration with Azure Firewall",
@@ -663,8 +657,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "Automatic backup snapshots",
         "Answer": "Correct answer: (c)",
         "Explanation": "Enabling the Hierarchical namespace allows Blob Storage to behave more like a traditional filesystem with directories and file-level operations."
-    },
-    {
         "Question": "4. The CloudOps engineer wants to ensure future file changes are updated in Azure without uploading unchanged files again. Which AzCopy command should he use?",
         "a": "azcopy move",
         "b": "azcopy list",
@@ -672,8 +664,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "azcopy remove",
         "Answer": "Correct answer: (c)",
         "Explanation": "The 'azcopy sync' command only updates changed files and avoids re-uploading existing data, making it efficient for maintaining consistency."
-    },
-    {
         "Question": "5. For automation, Naveed wants his sync script to run every 5 minutes. Which Windows tool should he use to schedule this recurring task?",
         "a": "Windows Registry Editor",
         "b": "Event Viewer",
@@ -681,8 +671,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "Services Console",
         "Answer": "Correct answer: (c)",
         "Explanation": "Windows Task Scheduler is used to run scripts or programs at specified time intervals, ideal for scheduling recurring AzCopy sync jobs."
-    },
-    {
         "Question": "6. Why is it important for the Curious Cloud Explorer to enable Geo-redundant storage (GRS) when setting up the storage account for file uploads?",
         "a": "To improve storage performance",
         "b": "To reduce storage cost",
@@ -690,8 +678,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "To disable backups",
         "Answer": "Correct answer: (c)",
         "Explanation": "Geo-redundant storage replicates data across regions, ensuring high availability and protection against regional outages."
-    },
-    {
         "Question": "7. If Naveed receives an error while authenticating AzCopy to access Azure, what is the correct next step?",
         "a": "Open Azure PowerShell",
         "b": "Run 'azcopy login' and complete the browser authentication",
@@ -699,8 +685,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "Restart the Azure VM",
         "Answer": "Correct answer: (b)",
         "Explanation": "Authentication for AzCopy requires using the 'azcopy login' command and completing sign-in through the browser with the provided code."
-    },
-    {
         "Question": "8. When verifying his uploads in the Azure Portal, Naveed checks which component within the storage account?",
         "a": "Queues",
         "b": "File shares",
@@ -708,8 +692,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "Snapshots",
         "Answer": "Correct answer: (c)",
         "Explanation": "Azure Blob Storage uses containers to organize and store blobs, so checking containers confirms that files were successfully uploaded."
-    },
-    {
         "Question": "9. What benefit does using 'azcopy sync' provide over 'azcopy copy' when maintaining an ongoing file backup process?",
         "a": "It automatically deletes the local folder",
         "b": "It increases file compression",
@@ -717,8 +699,6 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "It encrypts the files during upload",
         "Answer": "Correct answer: (c)",
         "Explanation": "The sync command is optimized for detecting and copying only changed or new files, making it ideal for repeated backups."
-    },
-    {
         "Question": "10. What is the role of the storage container named 'democontainer-naveed' in Naveed's solution for TechWaveNaveed?",
         "a": "It hosts SQL databases",
         "b": "It stores configuration scripts",
@@ -726,9 +706,9 @@ He didn’t just copy files—he created a **secure, scalable, and automated pip
         "d": "It manages virtual networks",
         "Answer": "Correct answer: (c)",
         "Explanation": "Containers in Azure Blob Storage are used to store blobs (files). Naveed created one to organize the uploaded data from his local machine."
-    }
+   
 
-
+  
 ---
 ---
 ---

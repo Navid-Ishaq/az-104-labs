@@ -104,109 +104,106 @@
 
 ### **🎯 Purpose of the Lab**
 
-The objective of this lab is to **secure access to an Azure Storage Account** using a **Private Endpoint**, isolating the storage traffic to a **Virtual Network (VNet)** instead of allowing access via public internet. This aligns with enterprise-grade security practices where sensitive data must not be exposed to public endpoints. By integrating **virtual machines (VMs)** within the same network and accessing storage securely via **Azure Storage Explorer**, the lab simulates a real-world deployment scenario suitable for organizations prioritizing **data privacy, compliance, and internal network-only access**.
+The purpose of this lab is to demonstrate how to **securely access an Azure Storage Account** through a **Private Endpoint** within a **Virtual Network (VNet)**. This setup ensures that data communication between resources occurs entirely over a private, internal network, rather than the public internet — meeting security and compliance standards. The lab also showcases how a **Virtual Machine (VM)** in the same subnet can access the storage account using **Azure Storage Explorer** with a **connection string**, simulating real-world enterprise configurations.
 
 ---
 
 ### **🛠️ Azure Tools and Their Roles**
 
-| **Azure Tool**             | **Description**                                                                                  | **Purpose in the Lab**                                                                                                          | **Example Name Used**                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| **Virtual Network (VNet)** | A logically isolated network in Azure, enabling resource communication in a private space.       | Used to create **whizNet1** (renamed e.g. `vnet-learntechcloud`) that isolates the storage and VM resources from public access. | `vnet-learntech-naveed`                          |
-| **Subnet**                 | A subdivision of a VNet, providing IP addressing within the VNet.                                | `SubnetA` hosts both the VM and private endpoint, enabling secure communication.                                                | `subnet-learntech-app`                           |
-| **Storage Account**        | A service to store data objects like blobs, files, queues, and tables.                           | Hosts the blob data accessed privately by VM via the **private endpoint**.                                                      | `stgcloudlabx01`                                 |
-| **Private Endpoint**       | A network interface that connects privately and securely to an Azure service from within a VNet. | Ensures the **storage account** is accessed through **private IPs only**, blocking public access.                               | `pe-stg-blob-learntech`                          |
-| **Virtual Machine (VM)**   | A compute resource used to run applications and simulate administrative tasks.                   | The **Windows Server VM** is deployed into the same subnet to test private access to the storage account.                       | `vm-ncloudedge-web01`                            |
-| **Storage Explorer**       | A client tool for interacting with Azure Storage resources.                                      | Installed inside the VM to verify secure access to blobs using the connection string.                                           | Not applicable – third-party tool used inside VM |
-| **Connection String**      | A set of credentials used to authenticate with Azure Storage.                                    | Retrieved from the storage account to allow secure connection via **Storage Explorer**.                                         | Key 1 of storage account                         |
+| **Azure Tool**             | **Description**                                                             | **Role in the Lab**                                                                                   | **Example Resource Name**           |
+| -------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| **Virtual Network (VNet)** | A private network space in Azure to isolate and connect resources securely. | Used to isolate resources and enable secure access to storage via private IP.                         | `vnet-learntech-naveed`             |
+| **Subnet**                 | A segment within a VNet with its own address space.                         | Hosts both the VM and private endpoint for resource communication.                                    | `subnet-naveedcloudops-data`        |
+| **Storage Account**        | A scalable Azure service to store blobs, files, and other data.             | Stores blob data and is secured to allow access only via the private endpoint.                        | `stg-cloudlabx-secure01`            |
+| **Private Endpoint**       | A private IP-based access point to an Azure resource inside a VNet.         | Connects the storage account privately to the subnet, disabling public internet access.               | `pe-cloudlabx-stg01`                |
+| **Virtual Machine (VM)**   | A Windows-based compute resource used to test networked access.             | Installed with **Azure Storage Explorer** to test and validate private access to the storage account. | `vm-ncloudedge-monitor01`           |
+| **Connection String**      | An authentication method used to connect to a storage account.              | Used in Azure Storage Explorer inside the VM to authenticate and access the storage blob securely.    | Retrieved from storage account keys |
+| **Azure Storage Explorer** | A GUI tool to explore and manage Azure Storage resources.                   | Installed inside the VM to test blob access using the connection string over the private endpoint.    | N/A (client-side application)       |
 
 ---
 
-### **📘 Example for Clarification**
+### **📘 Clarification Example**
 
-If **Naveed**, working under **SkyStack Labs**, creates a storage account named `stg-skystack-finance01` with private access only, he would place it inside a VNet named `vnet-skystack-prod`. To access it securely, he'd deploy a VM (`vm-skystack-monitor01`) within the same subnet and use **Azure Storage Explorer** with the retrieved **connection string** to view blob data – all without exposing traffic to the public internet.
+Imagine **Naveed**, a cloud administrator at **TechWaveNaveed**, needs to ensure secure, internal-only access to his storage account for hosting sensitive client logs. He creates a **Virtual Network** named `vnet-techwave-prod`, a **subnet** called `subnet-logs`, and a **storage account** named `stg-techwave-client01`. Then, he configures a **private endpoint** within that subnet and deploys a **VM** (`vm-techwave-admin01`) into the same subnet to validate connectivity. Inside the VM, he uses **Azure Storage Explorer** with the **connection string** to browse the storage — all without exposing the storage account to the public internet.
 
 ---
 
-### **🔐 Summary**
+### **🔐 Conclusion**
 
-This lab teaches how to:
+This lab equips learners like **Naveed**, the Curious Cloud Explorer, with practical skills in:
 
-* **Secure storage accounts** using **private networking**
-* **Enforce internal access only** using **VNets and subnets**
-* **Test private connectivity** via a VM setup
-* **Verify blob storage access** using real credentials
+* **Creating secure storage access paths** using **Private Endpoints**
+* **Deploying and configuring VNets and subnets**
+* **Implementing internal-only access policies**
+* **Testing connectivity** using **Azure Storage Explorer**
 
-This method reflects a best practice for organizations like **CloudTrainPro** or **AzureNXT**, especially in **finance, healthcare, and government sectors**, where **network isolation, zero trust**, and **regulatory compliance** are paramount.
-
-
+Such practices are vital for industries such as **finance, government, and healthcare**, where **data privacy, compliance**, and **internal resource segmentation** are mission-critical.
 
 ---
 ---
 ---
+## Comic-Style Summary: **“Storage in the Shadows – The Private Way!”**
 
+### 🌩️ The Mission: Keep It Private, Keep It Safe
 
-### **Scenario: Securing Access to Storage for a Financial Application**
-
-**Background**
-
-Sarah is a **Cloud Engineer** at a financial services company named **FinSecure Ltd.** The company is migrating sensitive customer data into **Azure Storage Accounts** and must ensure that access to this data is strictly controlled — **no public access** is allowed. Sarah is tasked with setting up a secure architecture where only internal systems from a **private network** can connect to the storage service.
-
-To meet **compliance** and **security** requirements, Sarah decides to use a combination of **Azure Virtual Networks (VNets)**, **Private Endpoints**, and **Virtual Machines (VMs)** to create and test a locked-down, secure environment for data access.
+**Naveed**, the **Curious Cloud Explorer** from **TechWaveNaveed**, was on a quest to secure sensitive client data. His challenge? Build a system where **no storage resource is publicly accessible** — but still usable internally for business-critical operations. Like a digital ninja, he planned to work behind the scenes, using **private endpoints** and **virtual networks** to keep things stealthy and secure.
 
 ---
 
-### **Step-by-Step Actions and Purpose**
+### 🛠️ Building the Secret Tunnel – A Virtual Network
 
-1. **Creating a Virtual Network**
+First, Naveed crafted a secure digital road: a **Virtual Network** called `vnet-techwave-prod`, and within it, a hidden alley known as **`subnet-logs`**. This would be the private passage for accessing storage without ever stepping into the internet's spotlight.
 
-   Sarah begins by creating a **Virtual Network (VNet)** named **whizNet1** in the **West Europe** region. She adds a **subnet** called **SubnetA** with the address range **10.0.0.0/24**. This **VNet** will host all internal resources, isolating them from the public internet.
-
-   > **Why?** To build a secure network boundary and control which resources can communicate with each other internally.
-
-2. **Creating a Storage Account with Private Access**
-
-   Next, Sarah creates a **Storage Account** and configures it to **disable public access**. Instead, she adds a **Private Endpoint** that links the storage account’s **Blob** service to **SubnetA**.
-
-   > **Why?** This ensures that the storage service is only reachable from within the **VNet**, protecting it from external threats and unauthorized access.
-
-3. **Saving the Connection String**
-
-   After the storage account is deployed, Sarah copies the **connection string** from the **Access keys** section. This string will later be used by internal applications to connect to the storage securely.
-
-   > **Why?** The **connection string** is a secure way to authenticate and connect to the storage service without relying on public endpoints.
-
-4. **Deploying a Virtual Machine**
-
-   Sarah then deploys a **Windows Server 2019 Virtual Machine (VM)** named **myWhizlabsVM1** in the same **VNet** and **SubnetA**. She enables **RDP** to connect to the VM and installs **Azure Storage Explorer** on it.
-
-   > **Why?** This VM simulates an internal application host that will access the **Storage Account** privately, validating that the **Private Endpoint** is working as intended.
-
-5. **Verifying Network Isolation**
-
-   Inside the VM, Sarah uses the **nslookup** command to check if the **blob service endpoint** of the storage account resolves to a **private IP address**. It does.
-
-   > **Why?** This confirms that traffic to the storage account is routed internally via the **Private Endpoint** — not over the internet.
-
-6. **Accessing the Storage Account**
-
-   Sarah opens **Azure Storage Explorer** on the VM, selects the option to connect using a **Connection String**, and pastes the string she copied earlier. She successfully connects to the **Blob** container without requiring any public internet access.
-
-   > **Why?** This proves that internal applications hosted in the **VNet** can securely access storage services through private network paths.
+> 🔐 **Key Concept**: A **Virtual Network** isolates resources from public exposure and forms the foundation for private connectivity in Azure.
 
 ---
 
-### **Business Outcome**
+### 📦 The Hidden Vault – A Private Storage Account
 
-Thanks to this setup, **FinSecure Ltd.** can now move its sensitive financial data into Azure Storage with confidence. Only authorized systems inside the company's **private network** can access the storage account, ensuring compliance with regulatory standards such as **ISO 27001** and **GDPR**.
+Next, he created a **Storage Account** called `stg-techwave-client01` and made a big move — **disabled public access**. Then, like installing a secure door into a private room, he attached a **Private Endpoint** connecting the Blob storage to the `subnet-logs` network. No public internet snoopers allowed!
 
-This architecture also positions the company to scale securely — future microservices or analytics tools can be added to the **VNet**, all while maintaining strict data access control using **Private Endpoints** and **Azure Role-Based Access Control (RBAC)**.
+> 🔍 **Private Endpoint** = Secure connection over a private IP address, hiding the storage from public access while still making it usable internally.
 
 ---
 
-### **Conclusion**
+### 🧪 The Field Test – A Private-Access Virtual Machine
 
-This story illustrates how a common enterprise need — secure data access — can be achieved using **Azure VNets**, **Storage Accounts**, **Private Endpoints**, and **VMs**. Each step in the lab supports a real-world objective: safeguarding data in the cloud without sacrificing accessibility for internal systems.
+To test everything, he summoned a new **Windows Virtual Machine**, `vm-techwave-admin01`, and dropped it right into the same subnet. He logged in, installed **Azure Storage Explorer**, and connected to the storage using the **access key** — and boom! It worked. Storage access without ever touching the open internet.
+
+> 💡 **Virtual Machines in the same subnet** can securely connect to private resources without public endpoints — a key element of enterprise cloud security.
+
+---
+
+### ✅ Mission Accomplished: Silent and Secure
+
+Naveed successfully **completed his task**. All storage access was locked down inside a secure Azure environment. Sensitive logs were shielded, compliance was achieved, and the internet never knew what hit it.
+
+---
+
+### 📌 What We Learned:
+
+* Use **Virtual Networks** and **subnets** to segment and isolate traffic.
+* Attach **Private Endpoints** to services like **Storage Accounts** for secure internal access.
+* Validate with tools like **Azure Storage Explorer** inside VMs that live in the same private network.
+* Keep naming consistent with real-world conventions like `vm-ncloudedge-web01` or `stg-techwave-client01`.
+
+---
+
+**In the end**, the Curious Cloud Explorer didn't just store files. He stored **trust**, **security**, and **confidence** — all tucked neatly away in Azure's invisible, private corridor. 🌐✨
+
+---
+---
+---
+### 🚀 Real-World Business Impact
+
+By combining **Azure Virtual Network**, **Private Endpoints**, and **Storage Explorer**, Naveed:
+
+* Prevents data leaks by **removing public exposure**
+* Aligns with **zero-trust networking models**
+* Improves **auditing and access control**
+* Simplifies compliance with financial and data residency regulations
+
+This lab is a **blueprint for secure enterprise cloud design**, where storage resources are only accessible from approved internal systems—making it ideal for businesses that prioritize **data privacy and control**.
 
 ---
 ---
@@ -332,4 +329,313 @@ This story illustrates how a common enterprise need — secure data access — c
 **Explanation**: **Private Endpoints** provide fully private, IP-based access over the internal network without using public routing paths.
 
 ---
+---
+---
+## Professional Job Interview Questions – Lab 6: Network Access to Storage Accounts
 
+### 1. Naveed, a cloud administrator at TechWaveNaveed, needs to ensure secure access to a storage account that hosts sensitive client logs. Which of the following configurations will help him keep the storage account accessible only from within a private Azure network?
+
+(a) Enable public endpoint with firewall restrictions  
+(b) Create a **Private Endpoint** linked to a **Virtual Network**  
+(c) Enable HTTPS access and SAS token  
+(d) Use a service endpoint on a public subnet  
+
+**Correct answer: (b)**  
+**Explanation:** A **Private Endpoint** allows secure access to a **Storage Account** through a private IP within a **Virtual Network**, eliminating exposure to the public internet.
+
+### 2. Naveed creates a **Virtual Network** called `vnet-techwave-prod` and a **Subnet** named `subnet-logs`. What is the purpose of isolating resources into specific subnets in this context?
+
+(a) To increase data redundancy  
+(b) To provide public access to blob containers  
+(c) To segregate and control access at the network level  
+(d) To automate virtual machine scaling  
+
+**Correct answer: (c)**  
+**Explanation:** Subnets in a **Virtual Network** help isolate resources, enforce **network security rules**, and control internal traffic routing, aligning with secure architecture.
+
+### 3. When Naveed disables public access on a **Storage Account**, which of the following best describes the resulting behavior?
+
+(a) The storage account is deleted  
+(b) It blocks all access including internal Azure services  
+(c) It restricts internet-based access to the account  
+(d) The account becomes read-only  
+
+**Correct answer: (c)**  
+**Explanation:** Disabling public access prevents all public endpoint requests, securing the **Storage Account** from unauthorized access while allowing private/internal connections.
+
+### 4. What is the role of the **Connection String** retrieved from the **Storage Account** in Naveed’s task?
+
+(a) It allows uploading to an Azure SQL database  
+(b) It is used to authenticate and connect with the account in **Storage Explorer**  
+(c) It creates a key vault for encryption  
+(d) It connects to a virtual machine over SSH  
+
+**Correct answer: (b)**  
+**Explanation:** The **Connection String** contains authentication information needed by tools like **Azure Storage Explorer** to access **blob containers** or **file shares**.
+
+### 5. Naveed creates a virtual machine named `vm-techwave-admin01`. Why does he place it inside the same subnet (`subnet-logs`) as the storage private endpoint?
+
+(a) For pricing benefits  
+(b) To increase disk throughput  
+(c) To allow network-level access to the private endpoint  
+(d) To create a load balancer configuration  
+
+**Correct answer: (c)**  
+**Explanation:** Placing the VM in the same **Subnet** ensures it can resolve the **Private Endpoint's** private IP and access the **Storage Account** internally.
+
+### 6. Why would Naveed choose **Azure Storage Explorer** inside the virtual machine instead of accessing the storage account via the browser?
+
+(a) Browsers are incompatible with Azure  
+(b) Browsers expose data to more security risks  
+(c) **Azure Storage Explorer** can connect using private endpoints from within the VNet  
+(d) Storage Explorer provides cost optimization features  
+
+**Correct answer: (c)**  
+**Explanation:** **Azure Storage Explorer** supports connecting via **connection strings** and respects private IP configurations, enabling access from within the **Virtual Network**.
+
+### 7. What DNS record is resolved when Naveed runs `nslookup stg-techwave-client01.blob.core.windows.net` from his VM?
+
+(a) The VM IP address  
+(b) The public IP of the subnet  
+(c) The private IP of the private endpoint  
+(d) Azure Front Door hostname  
+
+**Correct answer: (c)**  
+**Explanation:** **nslookup** resolves the DNS to the **Private Endpoint’s** IP address, validating the secure internal routing to the **Storage Account**.
+
+### 8. Naveed wants to ensure the **Virtual Machine** cannot access other services on the internet while maintaining access to the storage account. What should he configure?
+
+(a) A NAT Gateway  
+(b) A Network Security Group with outbound restrictions  
+(c) A route table pointing to Azure Firewall  
+(d) An Application Gateway  
+
+**Correct answer: (b)**  
+**Explanation:** Applying an **NSG** to limit **outbound internet access** while allowing specific internal traffic maintains security boundaries around the VM.
+
+### 9. Why is it important for Naveed to turn off **IE Enhanced Security Configuration** inside the VM before downloading **Azure Storage Explorer**?
+
+(a) It increases download speed  
+(b) It allows DNS updates  
+(c) It allows downloading external resources without prompts  
+(d) It’s required for blob encryption  
+
+**Correct answer: (c)**  
+**Explanation:** **IE Enhanced Security Configuration** restricts internet downloads. Disabling it allows tools like **Azure Storage Explorer** to be downloaded without interruptions.
+
+### 10. After all resources are deployed, Naveed validates access to **blob storage logs** using **Storage Explorer**. Which container would typically contain Azure service logs?
+
+(a) $metrics  
+(b) blob-archive  
+(c) system-storage  
+(d) $logs  
+
+**Correct answer: (d)**  
+**Explanation:** The special container **$logs** is used to store **Azure diagnostics and activity logs**, which are critical for monitoring and auditing.
+
+---
+---
+---
+## Professional Job Interview Questions – Network Access to Storage Accounts
+
+1. **Naveed**, a cloud engineer at **TechWaveNaveed**, needs to ensure that a storage account is only accessible within a virtual network. Which configuration should he use?
+   - (a) Enable public access and configure NSG rules
+   - (b) Use a private endpoint within the virtual network
+   - (c) Create a service endpoint on a different subnet
+   - (d) Use an ExpressRoute circuit
+   - **Correct answer: (b)**  
+     Using a **private endpoint** ensures that the storage account is accessible only through the selected **virtual network**, maintaining security by bypassing public access.
+
+2. While creating a VM named **vm-techwave-admin01**, the Curious Cloud Explorer wants it to access a storage account privately. What must be true about the virtual network setup?
+   - (a) It must be in a different region from the storage account
+   - (b) The VM must have a public IP
+   - (c) The VM and storage account must share the same **virtual network and subnet**
+   - (d) DNS must be disabled on the VM
+   - **Correct answer: (c)**  
+     For a **VM to communicate with a storage account via private endpoint**, both must be part of the **same virtual network and subnet** or properly peered networks.
+
+3. A storage account in **rg-learntech-naveed** is set to allow **private access only**. What outcome should Naveed expect when trying to access it over the public internet?
+   - (a) Success if credentials are correct
+   - (b) Access is denied due to the private access configuration
+   - (c) Access succeeds via Azure Storage Explorer
+   - (d) Access is redirected to another region
+   - **Correct answer: (b)**  
+     **Disabling public access** restricts access to the storage account from any source not connected via a **private endpoint**.
+
+4. The CloudOps engineer wants to confirm DNS resolution for the storage account **stg-techwave-client01** from within a VM. What PowerShell command should he use?
+   - (a) `Resolve-DnsName blob.core.windows.net`
+   - (b) `nslookup stg-techwave-client01.blob.core.windows.net`
+   - (c) `Test-NetConnection`
+   - (d) `ping stg-techwave-client01`
+   - **Correct answer: (b)**  
+     **nslookup** verifies **DNS resolution** for the private endpoint's hostname from the VM, ensuring correct name-to-IP mapping.
+
+5. After configuring a **private endpoint** on blob storage, what’s an expected side effect if DNS integration isn't correctly set up?
+   - (a) Slower storage performance
+   - (b) Public access is restored
+   - (c) VM fails to resolve the storage account hostname
+   - (d) Storage data is lost
+   - **Correct answer: (c)**  
+     Without correct **DNS setup**, the VM won't resolve the **private IP address** tied to the storage account, causing access failures.
+
+6. Naveed needs to ensure that his storage account is not accessible publicly and can only be reached from a specific subnet. What Azure feature should he use to enforce this configuration?
+
+(a) Service Endpoints  
+(b) Network Security Groups  
+(c) Private Endpoints  
+(d) Application Gateway  
+
+**Correct answer: (c)**  
+**Explanation**: **Private Endpoints** allow secure, private connectivity to Azure services over the Azure backbone network, which is ideal for internal-only access to storage accounts.
+
+7. The Curious Cloud Explorer has deployed a virtual machine in the same subnet as the storage account’s private endpoint. What tool can he use inside the VM to verify access to blob storage using a connection string?
+
+(a) Azure CLI  
+(b) Azure Storage Explorer  
+(c) Azure Monitor  
+(d) Disk Management  
+
+**Correct answer: (b)**  
+**Explanation**: **Azure Storage Explorer** allows users to connect to and manage storage accounts. Using a connection string, resources like blob containers can be accessed securely from inside a VM.
+
+8. While troubleshooting, the CloudOps engineer runs an `nslookup` for the storage account’s blob endpoint inside the VM. What is the purpose of this step?
+
+(a) To fetch the access key  
+(b) To test DNS resolution through the private endpoint  
+(c) To open a public port  
+(d) To check disk size  
+
+**Correct answer: (b)**  
+**Explanation**: The `nslookup` command helps verify that the blob endpoint resolves through the **private endpoint**, ensuring the storage is reachable only via the configured VNet.
+
+9. Naveed wants to allow RDP access to the VM deployed in the same subnet. What port should he ensure is open during the VM configuration?
+
+(a) 80  
+(b) 22  
+(c) 443  
+(d) 3389  
+
+**Correct answer: (d)**  
+**Explanation**: **Port 3389** is the default port for **Remote Desktop Protocol (RDP)**, which is required to connect to a Windows VM remotely.
+
+10. In the context of private access to a storage account, why is disabling public network access critical?
+
+(a) It reduces disk latency  
+(b) It improves data compression  
+(c) It prevents exposure of the storage account to the public internet  
+(d) It enables auto-scaling  
+
+**Correct answer: (c)**  
+**Explanation**: **Disabling public network access** ensures that only clients within the private network (e.g., a specific subnet with a private endpoint) can access the storage account, thereby enhancing security.
+"""
+
+---
+---
+---
+## Comic-Style Summary: **“Private by Design: Locking Down Storage Access”**
+
+### 🛠️ The Plan: Keep It Private!
+
+Naveed, the **Curious Cloud Explorer**, was on a mission at **TechWaveNaveed**. His challenge? To make sure sensitive storage data was only accessible within the private network — no public exposure allowed. This wasn’t just about deploying resources; it was about mastering secure, internal-only access using **Private Endpoints**.
+
+### 🌐 Building the Safe Zone
+
+The **CloudOps engineer** began by creating a virtual network called **vnet-techwave-prod** with a subnet named **subnet-logs**. This subnet would be the secret passageway connecting internal resources. He knew this virtual fortress would be the first step in keeping things tidy and traffic controlled.
+
+### 🧱 Sealing the Storage Vault
+
+Next, the **TechWaveNaveed admin** spun up a **Storage Account** named **stg-techwave-client01**. Instead of exposing it to the wild internet, he added a **Private Endpoint** — linking it directly to the subnet. Now, even curious outsiders couldn’t peek inside.
+
+### 🖥️ Access Without Exposure
+
+To prove his setup worked, our **Azure admin** deployed a VM named **vm-techwave-admin01** inside the same subnet. He hopped into the machine, ran a DNS test with `nslookup`, and confirmed the private IP resolution was working like a charm.
+
+### 🔐 Browsing the Blob — Securely
+
+Inside the VM, the **Curious Cloud Explorer** launched **Azure Storage Explorer**. With the **connection string** copied earlier, he accessed the blob storage — viewing the contents without ever needing public access. Mission accomplished. Quiet, secure, and beautifully executed.
+
+### 🧹 Clean-Up Crew
+
+After validating everything, he removed all deployed resources. No leftover mess. Just clean, professional cloud work — the kind of job Naveed does best.
+
+> ✅ **Final Note:** This story shows how combining **Private Endpoints**, **Virtual Networks**, and **secure access tools** can help enforce internal data policies while giving admins like Naveed full control over who sees what — and from where.
+
+---
+---
+---
+## Text-Based Diagram for the Lab: "Network Access to Storage Accounts"
+
+```text
++----------------------------------------------------+
+|           Start: Log in to Azure Portal           |
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|         Create Virtual Network (vnet-techwave-prod)|
+|        - Resource Group: rg-techwave-naveed        |
+|        - Region: West Europe                       |
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|            Add Subnet to VNet (subnet-logs)        |
+|        - Address Range: 10.0.0.0/24                |
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|        Create Storage Account (stg-techwave-client01) |
+|        - Region: West Europe                       |
+|        - Redundancy: GRS                           |
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|     Configure Networking: Disable Public Access    |
+|     and Add Private Endpoint (private-endpoint)    |
+|        - Sub-resource: blob                        |
+|        - VNet/Subnet: vnet-techwave-prod/subnet-logs|
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|       Retrieve Storage Account Key 1 Connection    |
+|                String for Access                   |
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|      Create Virtual Machine (vm-techwave-admin01)  |
+|        - Image: Windows Server 2019                |
+|        - Size: Standard_B2s                        |
+|        - VNet/Subnet: vnet-techwave-prod/subnet-logs|
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|          Connect to VM via RDP                     |
+|      - Turn off IE Enhanced Security               |
+|      - Install Azure Storage Explorer              |
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|      Use nslookup to test DNS resolution of blob   |
+|      Use Storage Explorer to connect via string    |
+|      and browse blob container ($logs)             |
++----------------------------------------------------+
+                        |
+                        v
++----------------------------------------------------+
+|               Delete All Resources                 |
++----------------------------------------------------+
+```
+
+### 📌 Summary:
+
+This diagram visually outlines the **step-by-step process** for securely accessing an **Azure Storage Account** using **Private Endpoints**. The process involves setting up a **Virtual Network**, deploying a **Storage Account**, creating a **Private Endpoint**, launching a **Virtual Machine**, and validating access internally with **Azure Storage Explorer** — all while avoiding public exposure to the internet.
+
+---
+---
+---

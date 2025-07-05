@@ -98,60 +98,48 @@
 ---
 ---
 ---
-
-### **Purpose of the Lab**
-
-The objective of this lab is to demonstrate how to **secure access to Azure Storage Accounts** by using **private endpoints**, thereby ensuring that storage traffic remains within the **Azure Virtual Network (VNet)**. This enhances **data security** by avoiding exposure to the public internet. Additionally, the lab illustrates how to use a **Virtual Machine (VM)** within the same VNet to access the storage account securely and verify the configuration using **Azure Storage Explorer**.
+## **Structured Summary – Lab 6: Network Access to Storage Accounts**
 
 ---
 
-### **Azure Tools and Services Utilized**
+### **🎯 Purpose of the Lab**
 
-#### **1. Azure Virtual Network (VNet)**
-
-* **Description**: A logically isolated network within the Azure cloud that enables secure communication between Azure resources.
-* **Role in Lab**: A **VNet** (`whizNet1`) is created to host the **SubnetA**, which is used to isolate both the **Virtual Machine** and **Private Endpoint**, ensuring traffic stays internal.
-
-#### **2. Azure Subnet**
-
-* **Description**: A range of IP addresses within a **VNet**.
-* **Role in Lab**: A subnet (`SubnetA`) is defined to house both the VM and the private endpoint, enabling network isolation and control.
-
-#### **3. Azure Storage Account**
-
-* **Description**: A service for storing structured and unstructured data, including blobs, files, queues, and tables.
-* **Role in Lab**: The storage account is created with **public access disabled** and **private access enabled**, ensuring it can only be reached through the **private endpoint**.
-
-#### **4. Private Endpoint**
-
-* **Description**: A network interface that connects you privately and securely to a service powered by **Azure Private Link**.
-* **Role in Lab**: A **Private Endpoint** is created for the storage account’s **Blob** service, linking it to the **VNet** so only internal resources can access it.
-
-#### **5. Azure Virtual Machine (VM)**
-
-* **Description**: A scalable computing resource that behaves like a traditional server and runs Windows or Linux operating systems.
-* **Role in Lab**: A **Windows Server 2019 VM** (`myWhizlabsVM1`) is created in the same **VNet** and **SubnetA** to test access to the storage account using the **connection string**.
-
-#### **6. Azure Storage Explorer**
-
-* **Description**: A free, standalone app from Microsoft that allows easy access and management of Azure cloud storage resources.
-* **Role in Lab**: Installed on the VM to connect to the **Storage Account** using the **connection string**, validating the **private access** setup.
-
-#### **7. NSLookup**
-
-* **Description**: A network administration command-line tool used for querying the Domain Name System (DNS).
-* **Role in Lab**: Used inside the VM to confirm that the storage account’s **Blob** endpoint resolves to a **private IP address**, verifying the **private endpoint** functionality.
-
-#### **8. Access Keys / Connection String**
-
-* **Description**: A set of credentials used to programmatically access Azure Storage services.
-* **Role in Lab**: The **connection string** is used in **Storage Explorer** to authenticate and securely access the storage account from the VM.
+The objective of this lab is to **secure access to an Azure Storage Account** using a **Private Endpoint**, isolating the storage traffic to a **Virtual Network (VNet)** instead of allowing access via public internet. This aligns with enterprise-grade security practices where sensitive data must not be exposed to public endpoints. By integrating **virtual machines (VMs)** within the same network and accessing storage securely via **Azure Storage Explorer**, the lab simulates a real-world deployment scenario suitable for organizations prioritizing **data privacy, compliance, and internal network-only access**.
 
 ---
 
-### **Conclusion**
+### **🛠️ Azure Tools and Their Roles**
 
-This lab emphasizes best practices in **network security** and **data access control** within Azure. By combining **VNets**, **private endpoints**, and **role-based access**, organizations can ensure that their critical data in **Azure Storage Accounts** remains protected from unauthorized public access, aligning with enterprise-grade **compliance** and **security requirements**.
+| **Azure Tool**             | **Description**                                                                                  | **Purpose in the Lab**                                                                                                          | **Example Name Used**                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| **Virtual Network (VNet)** | A logically isolated network in Azure, enabling resource communication in a private space.       | Used to create **whizNet1** (renamed e.g. `vnet-learntechcloud`) that isolates the storage and VM resources from public access. | `vnet-learntech-naveed`                          |
+| **Subnet**                 | A subdivision of a VNet, providing IP addressing within the VNet.                                | `SubnetA` hosts both the VM and private endpoint, enabling secure communication.                                                | `subnet-learntech-app`                           |
+| **Storage Account**        | A service to store data objects like blobs, files, queues, and tables.                           | Hosts the blob data accessed privately by VM via the **private endpoint**.                                                      | `stgcloudlabx01`                                 |
+| **Private Endpoint**       | A network interface that connects privately and securely to an Azure service from within a VNet. | Ensures the **storage account** is accessed through **private IPs only**, blocking public access.                               | `pe-stg-blob-learntech`                          |
+| **Virtual Machine (VM)**   | A compute resource used to run applications and simulate administrative tasks.                   | The **Windows Server VM** is deployed into the same subnet to test private access to the storage account.                       | `vm-ncloudedge-web01`                            |
+| **Storage Explorer**       | A client tool for interacting with Azure Storage resources.                                      | Installed inside the VM to verify secure access to blobs using the connection string.                                           | Not applicable – third-party tool used inside VM |
+| **Connection String**      | A set of credentials used to authenticate with Azure Storage.                                    | Retrieved from the storage account to allow secure connection via **Storage Explorer**.                                         | Key 1 of storage account                         |
+
+---
+
+### **📘 Example for Clarification**
+
+If **Naveed**, working under **SkyStack Labs**, creates a storage account named `stg-skystack-finance01` with private access only, he would place it inside a VNet named `vnet-skystack-prod`. To access it securely, he'd deploy a VM (`vm-skystack-monitor01`) within the same subnet and use **Azure Storage Explorer** with the retrieved **connection string** to view blob data – all without exposing traffic to the public internet.
+
+---
+
+### **🔐 Summary**
+
+This lab teaches how to:
+
+* **Secure storage accounts** using **private networking**
+* **Enforce internal access only** using **VNets and subnets**
+* **Test private connectivity** via a VM setup
+* **Verify blob storage access** using real credentials
+
+This method reflects a best practice for organizations like **CloudTrainPro** or **AzureNXT**, especially in **finance, healthcare, and government sectors**, where **network isolation, zero trust**, and **regulatory compliance** are paramount.
+
+
 
 ---
 ---

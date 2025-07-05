@@ -322,6 +322,97 @@ This lab represents a real scenario faced by companies migrating from **on-premi
 ---
 ---
 
+## Comic-Style Summary: **“Flying Files with AzCopy!”**
+
+🌤️ Once upon a techy morning at **LearnTechCloud**, **Naveed**, our ever-curious explorer of the cloud, received a call from his manager. The client at **SkyStack Labs** wanted to move all their documents from an **on-premises computer** to **Azure Storage**—securely and fast. And they wanted it to **stay updated automatically** too!
+
+---
+
+### 🎯 Mission: Get the data to the cloud… and keep it fresh!
+
+🧠 **The Curious Cloud Explorer** scratched his head. “Hmm... this sounds like a job for **AzCopy**!” A simple, speedy command-line tool for copying files to Azure. Let’s do this!
+
+---
+
+### 🛠️ Step 1: **Build the Storage Base**
+
+🏗️ Naveed logged into the Azure portal and created a **Storage Account** named `stlearntechnaveed`, living inside a group called `rg-learntech-naveed`.
+
+📦 Then he made a **container** inside it called `democontainer-naveed`. “This will hold all the files!” he smiled.
+
+💬 “This setup will make sure files are safe—even if a whole datacenter goes down!”
+
+---
+
+### 🧰 Step 2: **AzCopy — Power Tool in Hand**
+
+💾 He downloaded **AzCopy**, unzipped the file, and opened the command window like a true tech wizard.
+
+🔑 Using `azcopy login`, he connected to his Azure account securely.
+
+---
+
+### 📤 Step 3: **Upload Time!**
+
+📁 The CloudOps engineer placed all the client files in a folder named `C:\DataToUpload`.
+
+🕹️ Then he launched this magic command:
+
+```bash
+azcopy copy "C:\DataToUpload" "https://stlearntechnaveed.blob.core.windows.net/democontainer-naveed" --recursive=true
+```
+
+⚡ WHOOSH! In seconds, files zipped into the cloud. Naveed refreshed the Azure portal and grinned—**“They’re here!”**
+
+---
+
+### 🔄 Step 4: **Sync It Like a Pro**
+
+📑 Naveed made a small edit to a file and added a new one.
+
+🧩 Instead of copying everything again, he used:
+
+```bash
+azcopy sync "C:\DataToUpload" "https://stlearntechnaveed.blob.core.windows.net/democontainer-naveed" --recursive=true
+```
+
+📦 Only changes were uploaded. “Efficient and smart,” he noted.
+
+---
+
+### 🕒 Step 5: **Automation Magic Begins!**
+
+📝 He wrote a `.bat` script to do the syncing automatically.
+
+🤖 Then scheduled it to run every 5 minutes using:
+
+```bash
+schtasks /CREATE /SC minute /MO 5 /TN "AzCopySyncNaveed" /TR "C:\Scripts\sync-ncloudedge.bat"
+```
+
+⏰ Now the files would **auto-sync** like clockwork. Even if Naveed was on lunch!
+
+---
+
+### 🧹 Step 6: **Clean Finish**
+
+🗑️ After showing the results to his manager and seeing the files flowing like a river to the cloud, he **deleted the resources** to avoid charges.
+
+---
+
+### 🌟 Mission Accomplished!
+
+✅ **Did Naveed complete the task?** **Yes! With flying colors.**
+
+He didn’t just copy files—he created a **secure, scalable, and automated pipeline** for syncing data to Azure.
+
+💡 His smart use of **Storage Accounts**, **Containers**, and **AzCopy** showed how **cloud tools + automation** = real business impact.
+
+👨‍💻 Now, SkyStack Labs can relax knowing their files are always safe in the cloud—and Naveed? He’s off to explore his next cloud challenge.
+
+---
+---
+---
 
 ## **Story Scenario: Migrating Marketing Team Archives to Azure Blob Storage Using AzCopy**
 
@@ -417,97 +508,6 @@ This setup ensures:
 ## **Conclusion**
 
 Emily successfully migrated legacy assets to **Azure Blob Storage** using **AzCopy**, implemented **efficient syncing**, and automated the process via **Task Scheduler**. This lab mirrors real-world enterprise needs and showcases how to use **Azure Storage**, **AzCopy**, and **automation tools** to solve critical business challenges.
-
----
----
----
-## Comic-Style Summary: **“Flying Files with AzCopy!”**
-
-🌤️ Once upon a techy morning at **LearnTechCloud**, **Naveed**, our ever-curious explorer of the cloud, received a call from his manager. The client at **SkyStack Labs** wanted to move all their documents from an **on-premises computer** to **Azure Storage**—securely and fast. And they wanted it to **stay updated automatically** too!
-
----
-
-### 🎯 Mission: Get the data to the cloud… and keep it fresh!
-
-🧠 **The Curious Cloud Explorer** scratched his head. “Hmm... this sounds like a job for **AzCopy**!” A simple, speedy command-line tool for copying files to Azure. Let’s do this!
-
----
-
-### 🛠️ Step 1: **Build the Storage Base**
-
-🏗️ Naveed logged into the Azure portal and created a **Storage Account** named `stlearntechnaveed`, living inside a group called `rg-learntech-naveed`.
-
-📦 Then he made a **container** inside it called `democontainer-naveed`. “This will hold all the files!” he smiled.
-
-💬 “This setup will make sure files are safe—even if a whole datacenter goes down!”
-
----
-
-### 🧰 Step 2: **AzCopy — Power Tool in Hand**
-
-💾 He downloaded **AzCopy**, unzipped the file, and opened the command window like a true tech wizard.
-
-🔑 Using `azcopy login`, he connected to his Azure account securely.
-
----
-
-### 📤 Step 3: **Upload Time!**
-
-📁 The CloudOps engineer placed all the client files in a folder named `C:\DataToUpload`.
-
-🕹️ Then he launched this magic command:
-
-```bash
-azcopy copy "C:\DataToUpload" "https://stlearntechnaveed.blob.core.windows.net/democontainer-naveed" --recursive=true
-```
-
-⚡ WHOOSH! In seconds, files zipped into the cloud. Naveed refreshed the Azure portal and grinned—**“They’re here!”**
-
----
-
-### 🔄 Step 4: **Sync It Like a Pro**
-
-📑 Naveed made a small edit to a file and added a new one.
-
-🧩 Instead of copying everything again, he used:
-
-```bash
-azcopy sync "C:\DataToUpload" "https://stlearntechnaveed.blob.core.windows.net/democontainer-naveed" --recursive=true
-```
-
-📦 Only changes were uploaded. “Efficient and smart,” he noted.
-
----
-
-### 🕒 Step 5: **Automation Magic Begins!**
-
-📝 He wrote a `.bat` script to do the syncing automatically.
-
-🤖 Then scheduled it to run every 5 minutes using:
-
-```bash
-schtasks /CREATE /SC minute /MO 5 /TN "AzCopySyncNaveed" /TR "C:\Scripts\sync-ncloudedge.bat"
-```
-
-⏰ Now the files would **auto-sync** like clockwork. Even if Naveed was on lunch!
-
----
-
-### 🧹 Step 6: **Clean Finish**
-
-🗑️ After showing the results to his manager and seeing the files flowing like a river to the cloud, he **deleted the resources** to avoid charges.
-
----
-
-### 🌟 Mission Accomplished!
-
-✅ **Did Naveed complete the task?** **Yes! With flying colors.**
-
-He didn’t just copy files—he created a **secure, scalable, and automated pipeline** for syncing data to Azure.
-
-💡 His smart use of **Storage Accounts**, **Containers**, and **AzCopy** showed how **cloud tools + automation** = real business impact.
-
-👨‍💻 Now, SkyStack Labs can relax knowing their files are always safe in the cloud—and Naveed? He’s off to explore his next cloud challenge.
 
 ---
 ---

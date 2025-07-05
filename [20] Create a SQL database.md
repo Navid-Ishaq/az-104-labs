@@ -473,7 +473,7 @@ _The unique clustered constraint enforces data integrity by disallowing duplicat
 
 ---
 ---
-Here's a light, comic-style summary to help a layman understand the lab in a fun and friendly tone, while still focusing on the **key concepts**:
+## Here's a light, comic-style summary to help a layman understand the lab in a fun and friendly tone, while still focusing on the **key concepts**:
 
 ---
 

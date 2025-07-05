@@ -666,3 +666,81 @@ Emma’s journey shows that using **Azure App Service**, **SQL Database**, and *
 
 ---
 ---
+
+### ✅ What is an **ASP.NET app**?
+
+An **ASP.NET app** is **not** an Azure tool. It is:
+
+* A **web application** built using **ASP.NET**, which is a **free, open-source web framework** developed by Microsoft.
+* Used to build **websites**, **web APIs**, or **online services** using the **.NET platform**.
+* You typically build it using **Visual Studio** (a developer IDE), and write the code in **C#**.
+
+### 🔧 So, what does Azure have to do with it?
+
+Azure is the **cloud platform** where you **host or deploy** your ASP.NET app.
+
+In this lab:
+
+* You create an **ASP.NET web app** using Visual Studio.
+* Then, you **deploy** it to **Azure App Service** (a hosting environment in Azure for web apps).
+* Your app uses an **Azure SQL Database** to store and retrieve data, like a to-do list or user information.
+
+### 🤝 In short:
+
+| Term                   | What it is                        | Role in Lab                                   |
+| ---------------------- | --------------------------------- | --------------------------------------------- |
+| **ASP.NET App**        | A web application (built in .NET) | The application you're building and deploying |
+| **Azure App Service**  | A cloud hosting service           | Hosts your ASP.NET app on the web             |
+| **Azure SQL Database** | A managed database in Azure       | Stores your app’s data securely in the cloud  |
+
+---
+---
+Excellent and very thoughtful question!
+
+### 🌐 Is **creating an ASP.NET web app** part of the **AZ-104 Azure Administrator** role?
+
+**Short answer:**
+**No, building the app itself (writing code) is not typically part of an Azure Administrator’s job.**
+
+---
+
+### 📌 Then why is it in the AZ-104 lab?
+
+This lab focuses on **deploying** and **managing** the app in **Azure**, not developing it.
+
+Here’s the distinction:
+
+| Task                                                       | Who typically does it          | AZ-104 Admin involved? |
+| ---------------------------------------------------------- | ------------------------------ | ---------------------- |
+| **Writing ASP.NET code**                                   | Developer or Software Engineer | ❌ No                   |
+| **Publishing to Azure App Service**                        | DevOps or Admin                | ✅ Yes                  |
+| **Configuring App Service, database, scaling, monitoring** | Azure Administrator            | ✅ Yes                  |
+| **Managing SQL database access and firewall**              | Azure Administrator            | ✅ Yes                  |
+
+---
+
+### 🎯 Purpose in the Lab:
+
+Even though you're handed the ASP.NET app in this lab, your **real job as an AZ-104 Admin** is to:
+
+* **Deploy** the app to **Azure App Service**
+* **Create and configure** the **Azure SQL Database**
+* **Secure** the database (e.g., firewall rules)
+* **Enable logging and monitoring**
+* **Ensure high availability and scaling**
+
+These are **real-world tasks** that admins handle once a developer finishes the app.
+
+---
+
+### 🔍 Real-World Example:
+
+Imagine a developer team gives you a working app.
+Your manager says:
+
+> “Please deploy this app to Azure securely, make sure it can talk to the database, and set up log monitoring in case something fails.”
+
+That's **exactly** what this lab simulates.
+
+---
+---

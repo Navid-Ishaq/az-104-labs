@@ -360,10 +360,6 @@ Lab-Based Conceptual MCQs
 ---
 ---
 ---
-from pathlib import Path
-
-# Define the markdown content
-markdown_content = """\
 ## Professional Job Interview Questions – **Lab 4: Working with Alerts**
 
 ### 1.  
@@ -475,14 +471,6 @@ What is the role of **Azure Monitor Alerts** in a production environment managed
 
 **Correct answer: (b)**  
 **Azure Monitor Alerts** are designed to **notify teams of important conditions**—like performance issues or unauthorized changes—helping ensure uptime and governance.
-"""
-
-# Save to .md file
-file_path = Path("/mnt/data/Lab4_Working_with_Alerts_MCQs.md")
-file_path.write_text(markdown_content)
-
-file_path.name  # Return just the filename to the user
-
 
 ---
 ---
@@ -663,6 +651,52 @@ The production environment was now **secure, transparent**, and **proactively pr
 ---
 ---
 ---
+## Another Comic-Style Summary: **“Alert Me If You Dare!”**
+
+---
+
+### 🧑‍💻 **Meet Naveed – The Azure Watchdog!**
+
+Naveed, our sharp cloud administrator, just got a serious mission—**monitor every suspicious action** on a cloud-hosted **Windows Server VM**. "No sneaky reboots on my watch!" he declared. His manager wanted alerts if any **admin operations** were performed. Challenge accepted!
+
+---
+
+### 🖥️ **The Mighty VM Enters the Scene**
+
+Naveed spun up a brand-new **virtual machine** in **East US**, using **Windows Server 2022**. He gave it the name **resizeVM**, and like a digital fortress, he locked down all **public inbound ports**—no funny business from the internet allowed!
+
+---
+
+### 🛎️ **Setting the Alert Trap**
+
+Next, Naveed tiptoed into the **Azure Monitor** section, clicked on **Alerts**, and cooked up a brand-new **alert rule**. He selected the signal **All Administrative operations** so that any shutdown, reboot, or tweak would trip the alarm. "Now I've got eyes everywhere!" he grinned.
+
+---
+
+### 📢 **Creating the Loudspeaker (Action Group)**
+
+To make sure no alert went unheard, Naveed created an **action group** called **alertactiongrp**. He added his email so he’d be the first to know if the VM sneezed. This wasn’t just any email—it was the **red alert inbox**!
+
+---
+
+### 🧪 **Testing the Trap**
+
+Feeling clever, Naveed pressed **Restart** on the VM himself. Then he waited like a cat near a mouse hole. Boom! Minutes later—**ping!** His inbox lit up with a message: *“Administrative action detected on resizeVM.”* He did a little victory dance.
+
+---
+
+### ✅ **Mission Accomplished**
+
+With **Azure Alerts**, **Activity Log signals**, and **Action Groups** all working perfectly, Naveed built a bulletproof monitoring system. He made sure his team could respond fast to any unwanted admin actions—and kept his VM fortress safe.
+
+---
+
+> **Key Takeaway:** Naveed used **Azure Monitor**, **Alerts**, and **Action Groups** to create a proactive monitoring setup that keeps the cloud secure, compliant, and alert—literally!
+
+---
+---
+---
+
 ## Text-Based Diagram for the Lab: "Working with Alerts"
 
 ```plaintext

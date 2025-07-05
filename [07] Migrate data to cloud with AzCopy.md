@@ -1,95 +1,130 @@
 # Lab 7: Migrate data to cloud with AzCopy
 
 **Duration:** 45m
-Certainly! Here's the requested Azure lab as clean, step-by-step instructions in professional, vendor-neutral format:
+---
+---
+
+## 🔧 Azure Lab Instructions: Migrate Data to Cloud with AzCopy
+
+**Duration:** 45 minutes
+**Objective:** Upload and sync local files to Azure Blob Storage using AzCopy CLI.
 
 ---
 
-# Azure Lab Instructions: Migrate Data to Cloud with AzCopy
-
-**After logging in with your credentials:**
+### After logging in with your credentials:
 
 ---
 
-## Step 1: Create a Storage Account
+### **Step 1: Create a Storage Account**
 
-1. In the Azure Portal, search for **Storage accounts** in the top search bar and select it.
+1. In the Azure portal, search for **Storage accounts** and select it.
+
 2. Click **+ Create**.
+
 3. Under the **Basics** tab:
 
-   * **Resource group**: Select `rg_eastus_XXXXX`
-   * **Storage account name**: Enter a globally unique name (e.g., `whizstorage<yourname>`)
-   * **Region**: Select `East US`
-   * **Performance**: Select `Standard`
-   * **Redundancy**: Select `Geo-redundant storage (GRS)`
-4. Go to the **Advanced** tab and set **Hierarchical namespace** to **Enabled**.
-5. Click **Review + Create**, then click **Create**.
-6. Once deployment is complete, select **Go to resource**.
-7. From the left menu, choose **Containers** and click **+ Container**.
-8. Name the container `democontainer` and click **Create**.
+   * **Subscription**: Use default/available subscription
+   * **Resource group**: Select or create **`rg-learntech-naveed`**
+   * **Storage account name**: Enter **`ncloudstorage01`** (must be globally unique)
+   * **Region**: **East US**
+   * **Performance**: **Standard**
+   * **Redundancy**: **Geo-redundant storage (GRS)**
+
+4. Go to the **Advanced** tab:
+
+   * Set **Hierarchical namespace** to **Enabled**
+
+5. Click **Review + create** → Click **Create**
+
+6. After deployment, click **Go to resource**
+
+7. In the left menu, click **Containers** → then **+ Container**
+
+8. Name the container **`democontainer-naveed`** → Click **Create**
 
 ---
 
-## Step 2: Download and Configure AzCopy
+### **Step 2: Download and Configure AzCopy**
 
-1. Download AzCopy from the official link:
-   [https://aka.ms/downloadazcopy-v10-windows](https://aka.ms/downloadazcopy-v10-windows)
-2. Extract the downloaded ZIP file to a local folder.
-3. Open **Command Prompt** and navigate to the extracted folder using:
+1. Download AzCopy from: [https://aka.ms/downloadazcopy-v10-windows](https://aka.ms/downloadazcopy-v10-windows)
 
-   ```
-   cd <path-to-azcopy-folder>
-   ```
-4. Authenticate AzCopy with:
+2. Extract the downloaded `.zip` to **`C:\Tools\AzCopy`**
 
+3. Open **Command Prompt** and navigate to the AzCopy folder:
+
+   ```bash
+   cd C:\Tools\AzCopy
    ```
+
+4. Authenticate AzCopy:
+
+   ```bash
    azcopy login
    ```
-5. Open the browser as instructed in the output, enter the given code, and log in.
+
+5. Open the browser, enter the code shown in terminal, and sign in with your Azure credentials.
 
 ---
 
-## Step 3: Upload Files to Azure Blob Storage
+### **Step 3: Upload Files to Azure Blob Storage**
 
-1. Prepare your local folder with the files you want to upload.
-2. Run the following command to copy files recursively:
+1. Prepare a local folder, e.g., **`C:\DataToUpload`**, and add sample files.
 
+2. Use the following AzCopy command to copy all files:
+
+   ```bash
+   azcopy copy "C:\DataToUpload" "https://ncloudstorage01.blob.core.windows.net/democontainer-naveed" --recursive=true
    ```
-   azcopy copy "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
-   ```
-3. Go back to the Azure Portal and confirm the files appear in the container.
+
+3. In the Azure portal, go to the container to verify the uploaded files.
 
 ---
 
-## Step 4: Modify and Sync Data for Testing
+### **Step 4: Modify and Sync Data for Testing**
 
-1. Add or modify a file in your local folder.
-2. Run the sync command to update Blob Storage:
+1. Modify or add a file in **`C:\DataToUpload`**
 
+2. Sync the folder to the Azure container:
+
+   ```bash
+   azcopy sync "C:\DataToUpload" "https://ncloudstorage01.blob.core.windows.net/democontainer-naveed" --recursive=true
    ```
-   azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
-   ```
-3. Confirm the changes in the Azure container.
+
+3. Confirm the changes reflect in the container.
 
 ---
 
-## Step 5: Create a Scheduled Task for Automated Sync
+### **Step 5: Create a Scheduled Task for Automated Sync**
 
-1. Open Notepad and paste the sync command from Step 4, updating the paths as needed.
-2. Save the file as `script.bat` (e.g., `C:\script.bat`).
+1. Open **Notepad**, paste the sync command, and update paths as needed:
+
+   ```bash
+   azcopy sync "C:\DataToUpload" "https://ncloudstorage01.blob.core.windows.net/democontainer-naveed" --recursive=true
+   ```
+
+2. Save the file as:
+   **`C:\Scripts\sync-ncloudedge.bat`**
+
 3. Open **Command Prompt as Administrator** and create a scheduled task:
 
+   ```bash
+   schtasks /CREATE /SC minute /MO 5 /TN "AzCopy-Sync-NCloudEdge" /TR C:\Scripts\sync-ncloudedge.bat
    ```
-   schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
-   ```
-4. Add a new file to your local folder and wait for the task to run and sync the file.
+
+4. Add or update a file in the folder and wait for the scheduled task to sync it automatically.
 
 ---
 
-## Step 6: Final Step
+### **Step 6: Final Step**
 
 **Delete all the resources.**
 
+---
+
+This lab follows a real-world DevOps-style process of using **command-line tools** for **efficient, repeatable blob storage management**, simulating tasks performed by **Cloud Administrators** or **Storage Engineers** in professional infrastructure environments.
+
+---
+---
 ---
 
 ## **Lab Summary: Migrate Data to Cloud with AzCopy**

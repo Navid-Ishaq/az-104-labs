@@ -177,10 +177,6 @@
 
 ---
 ---
-Certainly! Below is a **structured, copyright-free summary** of the Azure Lab titled:
-
----
-
 ## **Lab Summary: Creating Azure Firewall and Configuring Network Rules**
 
 ### **Purpose of the Lab**

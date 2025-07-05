@@ -513,7 +513,8 @@ Alex now understands how to use **Azure SQL**, control **firewall access**, and 
 
 ---
 ---
-Below is a **text-based diagram** representing the full lab workflow in a **step-by-step visual format** using plain text. This layout is designed for **easy understanding**, even for beginners.
+
+## **Text-Based Diagram for the Lab: Create a SQL Database in Azure**
 
 ---
 

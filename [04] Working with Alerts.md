@@ -216,6 +216,26 @@ Through this lab, Naveed implemented a foundational **alerting strategy using Az
 ---
 ---
 ---
+## Comic-Style Summary: **“Alerts That Never Sleep!”**
+
+Meet **Naveed**, a cloud admin who’s always on guard. His job? Keep critical servers safe and sound for a finance system that never sleeps. But lately, his manager has been worried about **unauthorized changes** on Azure virtual machines — like someone accidentally **restarting** or **stopping** a VM during work hours. That’s a big deal!
+
+So, Naveed rolls up his sleeves and opens the **Azure Portal**. He first creates a test **Windows Server VM** named `resizeVM`, choosing a size that fits the budget and turning off **public access** — because safety comes first! This will be the test subject for his alerting setup.
+
+Now comes the **superpower** part: **Azure Monitor Alerts**. Naveed navigates to the **Alerts** section inside the VM, selects **Activity Log**, and sets a condition for **“All Administrative operations.”** This means any **restart**, **shutdown**, or **change** will trigger a warning!
+
+But alerts are no good without a receiver! So, Naveed creates an **Action Group** named `alertactiongrp`, and hooks up his **email** to it. Now, whenever something shady or sudden happens, **boom!** — he gets a message right in his inbox.
+
+To test it, Naveed restarts the VM himself. A few minutes later — *ding!* — an email lands in his inbox: **“Administrative action detected.”** Success! The alert system is alive and working.
+
+By the end of the day, Naveed has built a **watchdog system** that guards the cloud 24/7. Now the team gets **instant updates**, stays **compliant**, and handles problems **before they become disasters**.
+
+**Lesson?** With **Azure Monitor**, **alerts**, and **action groups**, you don’t just watch your servers — you **protect them like a pro.** 🛡️💻📬
+
+---
+---
+---
+
 Lab-Based Conceptual MCQs
 ---
 
@@ -338,5 +358,242 @@ Lab-Based Conceptual MCQs
 **Explanation**: Receiving the alert email after performing the configured action (e.g., a restart) confirms that the alert rule and action group are working as intended.
 
 ---
+---
+---
+## Professional Job Interview Questions – AZ-104 Labs
 
+### 1. Naveed wants to ensure his team is notified whenever someone restarts a critical production VM. Which Azure feature should he use to detect such operational changes?
 
+(a) Azure Role-Based Access Control  
+(b) Azure Monitor Activity Log Alerts  
+(c) Azure Service Health  
+(d) Azure Log Analytics Workspace  
+
+**Correct answer: (b)**  
+Azure Monitor’s Activity Log alerts can detect administrative actions such as restarting or stopping a VM, making it the right tool for proactive monitoring.
+
+---
+
+### 2. To avoid delays in alerting, Naveed needs to define how notifications are delivered. Which component should he configure?
+
+(a) Log Analytics Query  
+(b) Azure Runbook  
+(c) Action Group  
+(d) Resource Lock  
+
+**Correct answer: (c)**  
+An **Action Group** specifies how and where to send alert notifications—via email, SMS, or webhook—once the alert rule is triggered.
+
+---
+
+### 3. After assigning an alert rule, Naveed wants to test it. What’s the best way to validate whether the alert works?
+
+(a) Wait for a real incident  
+(b) Restart the virtual machine manually  
+(c) Check the metrics blade  
+(d) Remove and recreate the alert  
+
+**Correct answer: (b)**  
+Restarting the VM triggers the alert defined on administrative operations, confirming the alert system works as expected.
+
+---
+
+### 4. Why did Naveed disable public inbound ports on the virtual machine?
+
+(a) To prevent the VM from accessing the internet  
+(b) To improve disk performance  
+(c) To reduce the attack surface  
+(d) To enforce a tagging policy  
+
+**Correct answer: (c)**  
+Disabling public inbound ports minimizes exposure to the internet and enhances **security** by limiting attack vectors.
+
+---
+
+### 5. What type of signal did Naveed use when creating the alert rule for administrative activity?
+
+(a) Metric signal  
+(b) Log signal  
+(c) Activity Log signal  
+(d) Diagnostic setting  
+
+**Correct answer: (c)**  
+**Activity Log signals** are ideal for detecting control plane operations like restart, delete, or modify events.
+
+---
+
+### 6. Naveed is concerned about alerting delays. Which action improves real-time responsiveness?
+
+(a) Enable autoscale  
+(b) Use activity log-based alerts with action groups  
+(c) Enable diagnostic logs  
+(d) Add a storage account to the VM  
+
+**Correct answer: (b)**  
+Using **activity log alerts** combined with **action groups** provides near real-time notifications to designated recipients.
+
+---
+
+### 7. Naveed needs alerts for multiple VMs with the same condition. What should he do to minimize effort?
+
+(a) Create individual alerts for each VM  
+(b) Use Azure Automation  
+(c) Assign the alert at the resource group level  
+(d) Use a VM extension  
+
+**Correct answer: (c)**  
+Assigning the alert at the **resource group level** applies the rule to all included VMs, making management more efficient.
+
+---
+
+### 8. Which feature allows Naveed to send alerts to email, SMS, or even automation tools?
+
+(a) Alert Dashboard  
+(b) Resource Health  
+(c) Action Group  
+(d) Role Assignment  
+
+**Correct answer: (c)**  
+**Action Groups** are built to route alerts to different channels and can trigger automated responses as well.
+
+---
+
+### 9. What would happen if Naveed configured an alert without assigning an action group?
+
+(a) Azure will create a default notification  
+(b) The alert will still function but not notify anyone  
+(c) The alert cannot be saved  
+(d) Azure will disable the alert automatically  
+
+**Correct answer: (b)**  
+Alerts can still run without an **action group**, but **no one will be notified**, defeating the alert's purpose.
+
+---
+
+### 10. Why is using Azure Monitor alerts a better practice than writing custom scripts for event detection?
+
+(a) It is more expensive  
+(b) It avoids using built-in Azure tools  
+(c) It enables proactive, code-free monitoring  
+(d) It requires advanced PowerShell skills  
+
+**Correct answer: (c)**  
+**Azure Monitor** enables scalable, proactive alerting through a GUI or templates—no custom scripting needed.
+
+---
+---
+---
+## Comic-Style Summary: **“Ping Me If Something Breaks!”**
+
+---
+
+### 🧑‍💻 The Setup Begins: Naveed vs The Quiet Cloud
+
+**Naveed**, the always-alert Azure admin, was sipping chai when his boss stormed in:
+
+> “We need to know if anyone restarts or messes with the production VM — *before* chaos breaks loose!”
+> Naveed smiled and cracked his fingers. “Time to give this cloud some ears!” he declared, opening the **Azure Portal** to spin up a **Windows Server VM** named **resizeVM** — secure, lean, and ready to be watched like a hawk.
+
+---
+
+### 🚨 The Secret Weapon: Azure Alerts
+
+Once the VM was up, Naveed headed straight to the **Monitoring > Alerts** blade.
+“I need to catch every admin move — like a CCTV camera, but for the cloud,” he muttered.
+He set up an **alert rule** using the **Activity Log signal** for **All Administrative Operations**. Any **restart**, **shutdown**, or **config change** would now send an alert.
+“Good luck sneaking past *this* firewall, buddy,” he grinned.
+
+---
+
+### 📬 The Messenger Squad: Action Group Activated
+
+Now that alerts were set, Naveed created an **Action Group** named **alertactiongrp**.
+“I need these alerts to hit my inbox like a text from mom,” he joked, adding his email for notifications.
+He imagined a team of digital pigeons flying alerts to his office, just in case someone touched that VM.
+
+---
+
+### 🔁 The Great Test: Restart and Wait
+
+To make sure his setup worked, Naveed gave **resizeVM** a gentle reboot — just like poking a sleeping dragon.
+“Let’s see if the cloud tattles,” he said, peeking at his inbox.
+Boom! Within minutes, an email alert arrived:
+**“Administrative action detected on resizeVM.”**
+Naveed high-fived himself. “The cloud *listens* now.”
+
+---
+
+### 🎯 Mission Accomplished: Alerts That Work
+
+Naveed reported back to his boss, “We now get notified before the damage is done. Like digital Spidey-sense.”
+Thanks to **Azure Monitor**, **Activity Log alerts**, and **Action Groups**, the team could now **monitor**, **act fast**, and **stay compliant** without breaking a sweat.
+The production environment was now **secure, transparent**, and **proactively protected** — all thanks to Naveed’s alert-fu!
+
+---
+
+✅ And so, the day was saved… by **smart monitoring**, **a few clicks**, and one very alert **Naveed**.
+
+---
+---
+---
+## Text-Based Diagram for the Lab: "Working with Alerts"
+
+```plaintext
++----------------------------+
+| 1. Create Virtual Machine |
++----------------------------+
+            |
+            v
++------------------------------------+
+| Configure Windows Server 2022 VM  |
+| - Region: East US                 |
+| - Size: B2s                       |
+| - OS Disk: Standard SSD           |
+| - Disable Public Inbound Ports    |
++------------------------------------+
+            |
+            v
++-------------------------------+
+| 2. Go to VM > Monitoring Tab |
++-------------------------------+
+            |
+            v
++---------------------------------------------+
+| 3. Create Alert Rule                        |
+| - Scope: resizeVM (the new VM)              |
+| - Condition: "All Administrative Operations"|
++---------------------------------------------+
+            |
+            v
++--------------------------------------+
+| 4. Create Action Group               |
+| - Name: alertactiongrp               |
+| - Action: Send Email to Naveed       |
++--------------------------------------+
+            |
+            v
++-------------------------------+
+| 5. Restart the Virtual Machine|
++-------------------------------+
+            |
+            v
++----------------------------------+
+| 6. Validate Email Notification   |
+| - Check for alert in email inbox |
+| - Confirm it mentions restart    |
++----------------------------------+
+            |
+            v
++----------------------------------------------+
+| 7. Monitor for Real-World Admin Activities   |
+| - Ensure alerts catch future changes         |
++----------------------------------------------+
+```
+
+### 📝 What This Diagram Shows:
+
+This diagram outlines the **step-by-step process** Naveed followed to configure **alert-based monitoring** for a cloud-hosted **Windows VM** using **Azure Monitor**. It highlights the creation of an **alert rule**, setting up an **action group**, and validating real-time **email alerts** based on **administrative actions**. This flow empowers proactive monitoring and **incident response** using **native Azure tools**.
+
+---
+---
+---

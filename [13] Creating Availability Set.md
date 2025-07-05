@@ -131,9 +131,6 @@ This lab reinforces essential cloud architecture practices by teaching how to im
 
 ---
 ---
-Sure! Here's a professional and practical scenario-based narrative aligned with the Azure lab on **Creating an Availability Set**:
-
----
 
 ## **Real-World Scenario: Ensuring Application Uptime with Azure Availability Sets**
 

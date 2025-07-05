@@ -486,3 +486,107 @@ That’s why **David completed his task efficiently and professionally.**
 
 ---
 ---
+## Professional Job Interview Questions – AZ-104 Labs
+
+1. **An Azure administrator** needs to enable secure remote access to a newly created **Windows virtual machine** that has no public inbound port open. What is the most appropriate step to take?
+
+   (a) Create an outbound rule in the **NSG** to allow port 3389  
+   (b) Add an inbound rule to the **NSG** to allow port 3389 from the Internet  
+   (c) Assign a public IP to the VM without modifying **NSG** rules  
+   (d) Install a VPN Gateway to the virtual network  
+
+   **Correct answer:** (b)  
+   **Explanation:** To allow remote desktop access via **RDP (port 3389)**, an inbound **NSG rule** must be created to permit traffic from the Internet. A public IP alone does not open the required port.
+
+2. A company wants to host an internal website accessible only within their **virtual network**. Which of the following actions should the administrator take?
+
+   (a) Open port 80 to the Internet via NSG  
+   (b) Associate a public IP with the web server  
+   (c) Use private IP and restrict **NSG** rules to internal subnets  
+   (d) Use a Load Balancer with public frontend  
+
+   **Correct answer:** (c)  
+   **Explanation:** For internal websites, private IP addressing combined with **NSG rules** scoped to internal subnets ensures the website is isolated from public internet access.
+
+3. After deploying a **virtual machine**, an admin installs the **IIS web server** and wants users to access it externally. What is the next required step?
+
+   (a) Reboot the virtual machine  
+   (b) Open port 443 via NSG  
+   (c) Create a custom DNS record  
+   (d) Add an inbound **NSG rule** for port 80  
+
+   **Correct answer:** (d)  
+   **Explanation:** To access a web server running on port 80, an inbound rule in the **Network Security Group** must be created to allow HTTP traffic.
+
+4. Your security team has requested that only specific IP ranges access the VM through **RDP**. What should you configure?
+
+   (a) Modify the subnet mask  
+   (b) Set source as **IP Addresses** in the **NSG** rule  
+   (c) Use a service tag for "Internet"  
+   (d) Disable NSG entirely  
+
+   **Correct answer:** (b)  
+   **Explanation:** NSG rules allow fine-grained control, including setting specific source **IP ranges** to control who can access services like RDP.
+
+5. You’ve created a **Windows Server VM** but cannot connect via RDP. What should you verify first?
+
+   (a) The OS version compatibility  
+   (b) Whether boot diagnostics are enabled  
+   (c) That port 3389 is allowed via **NSG** inbound rule  
+   (d) VM region availability  
+
+   **Correct answer:** (c)  
+   **Explanation:** RDP requires **NSG rules** that permit traffic on port 3389. Without this, the connection will be blocked.
+
+6. An organization needs to deploy an application that listens on **port 8080**. What is the proper way to allow external access to it?
+
+   (a) Change the application port to 80  
+   (b) Add an **NSG inbound rule** for port 8080  
+   (c) Use a VPN to route all traffic  
+   (d) Install Azure Bastion  
+
+   **Correct answer:** (b)  
+   **Explanation:** To expose a non-standard port like 8080, an **NSG rule** must explicitly allow that port in the inbound direction.
+
+7. A VM has been deployed but is not responding to **HTTP** requests from external users. What is the likely cause?
+
+   (a) HTTP is blocked by the Windows firewall  
+   (b) VM is not assigned a public IP  
+   (c) Inbound rule for port 80 is missing in **NSG**  
+   (d) VM diagnostics is turned off  
+
+   **Correct answer:** (c)  
+   **Explanation:** Access via HTTP requires port 80 to be open. This must be configured in the VM’s associated **NSG**.
+
+8. To enhance security, an admin wants to remove RDP access after maintenance. What is the best approach?
+
+   (a) Remove the public IP  
+   (b) Stop the virtual machine  
+   (c) Delete the NSG rule for port 3389  
+   (d) Change the admin password  
+
+   **Correct answer:** (c)  
+   **Explanation:** Removing the **NSG rule** that allows port 3389 effectively disables RDP access without stopping the VM or affecting other services.
+
+9. A developer deployed a web application but cannot access it using the public IP. What is the first step to troubleshoot?
+
+   (a) Restart the application  
+   (b) Check **NSG inbound rules** for port 80  
+   (c) Redeploy the virtual machine  
+   (d) Add a public load balancer  
+
+   **Correct answer:** (b)  
+   **Explanation:** Access to web applications over the Internet requires open port 80. **NSG rules** must be validated for correct configuration.
+
+10. You want to prevent all internet access to a VM except for **RDP** from a specific subnet. What should you do?
+
+   (a) Create a deny-all outbound NSG rule  
+   (b) Allow Internet as the source  
+   (c) Use **NSG rule** with subnet-level source filtering  
+   (d) Remove the public IP  
+
+   **Correct answer:** (c)  
+   **Explanation:** Using subnet-level filtering in **NSG rules** allows access only from specific subnets while denying other traffic, including general Internet access.
+
+---
+---

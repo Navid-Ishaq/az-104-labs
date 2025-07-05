@@ -329,8 +329,6 @@ So, did Naveed complete his task? **Absolutely!**
 He didn’t just build a VM — he automated it, connected it, tested it, and cleaned up like a true cloud hero.
 With **Azure CLI**, he proved that cloud tasks can be fast, reliable, and fun — if you know the magic commands. ✨
 
-Let me know if you'd like the text-based diagram or MCQs next!
-
 ---
 ---
 ---

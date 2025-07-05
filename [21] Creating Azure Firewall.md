@@ -762,25 +762,92 @@ With everything configured and tested, Alex validated his work and then cleaned 
 
 ---
 ---
-
 ## Text-Based Diagram for the Lab: "Creating Azure Firewall and Securing Network Traffic"
 
-```markdown
-| **Step** | **Description** |
-|---------|------------------|
-| 1 | **Login to Azure Portal** using your credentials. |
-| 2 | **Create a Virtual Network (VNet)** in West Europe with the following subnets:<br>• AzureFirewallSubnet<br>• Workload-SN<br>• Jump-SN<br>• AzureFirewallManagementSubnet |
-| 3 | **Deploy Virtual Machines (VMs):**<br>• `Srv-Jump` (Jump box with public IP)<br>• `Srv-Work` (Internal VM with no public IP)<br>Assign VMs to appropriate subnets. |
-| 4 | **Deploy Azure Firewall and Policy:**<br>• Attach firewall to the VNet<br>• Assign public and private IPs<br>• Create and attach a basic firewall policy |
-| 5 | **Configure Route Table:**<br>• Create a route table<br>• Add default route (0.0.0.0/0) with next hop = Azure Firewall private IP<br>• Associate with `Workload-SN` |
-| 6 | **Add Application Rule to Firewall Policy:**<br>• Allow HTTP/HTTPS to `www.google.com`<br>• Source: IP range of Workload-SN |
-| 7 | **Add Network Rule to Firewall Policy:**<br>• Allow DNS (UDP port 53) to external DNS servers<br>• Source: Workload-SN IP range<br>• Destination: 209.244.0.3, 209.244.0.4 |
-| 8 | **Add DNAT Rule to Firewall:**<br>• Allow RDP to `Srv-Work` via Firewall Public IP<br>• Translates to `Srv-Work` private IP:3389 |
-| 9 | **Configure DNS on `Srv-Work` NIC:**<br>• Set custom DNS: 209.244.0.3 and 209.244.0.4<br>• Restart VM to apply changes |
-| 10 | **Test Firewall Setup:**<br>• Connect to `Srv-Jump` via RDP<br>• RDP into `Srv-Work` using internal IP<br>• Test browsing:<br>✓ www.google.com = Allowed<br>✗ www.microsoft.com = Blocked |
-| 11 | **Delete all the resources** |
+```text
++--------------------------------------------------+
+|             Login to Azure Portal               |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|         Create a Virtual Network (VNet)         |
+|  - Region: West Europe                          |
+|  - Add multiple subnets:                        |
+|     • AzureFirewallSubnet                       |
+|     • Workload-SN                               |
+|     • Jump-SN                                   |
+|     • AzureFirewallManagementSubnet             |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|           Deploy Virtual Machines (VMs)         |
+|  - Srv-Jump (Public IP, Jump Box)               |
+|  - Srv-Work (Private, Internal Use Only)        |
+|  - Assign each VM to the correct subnet         |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|     Deploy Azure Firewall and Create Policy     |
+|  - Attach to VNet                               |
+|  - Assign Public and Private IPs                |
+|  - Create and attach a Firewall Policy          |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|         Configure Route Table and Routing       |
+|  - Create Route Table                           |
+|  - Add default route (0.0.0.0/0)                |
+|    ➜ Next Hop: Azure Firewall Private IP        |
+|  - Associate Route Table with Workload-SN       |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|        Configure Firewall Application Rule      |
+|  - Allow HTTP/HTTPS to www.google.com           |
+|  - Source: Workload subnet IP range             |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|        Configure Firewall Network Rule          |
+|  - Allow DNS (UDP Port 53) to external DNS IPs  |
+|  - Source: Workload subnet IP range             |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|           Configure Firewall DNAT Rule          |
+|  - Allow RDP traffic to Srv-Work via Firewall   |
+|  - Map Firewall Public IP ➜ Srv-Work Private IP |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|      Configure DNS Settings for Srv-Work VM     |
+|  - Set custom DNS: 209.244.0.3 and 209.244.0.4  |
+|  - Restart Srv-Work to apply DNS settings       |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|              Test Firewall Rules                |
+|  - Connect to Srv-Jump via RDP                  |
+|  - Use Remote Desktop to reach Srv-Work         |
+|  - Browse:                                      |
+|     ✓ www.google.com ➜ Allowed                  |
+|     ✗ www.microsoft.com ➜ Blocked               |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|               Delete all the resources          |
++--------------------------------------------------+
 ```
-
 ---
 ---
 

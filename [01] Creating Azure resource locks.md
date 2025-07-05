@@ -180,6 +180,59 @@ Once the audit period ends or the infrastructure is no longer needed, Aisha remo
 
 ---
 ---
+
+## 🧑‍💻 Comic-Style Summary: **“Lock It Before You Lose It!”**
+
+---
+
+### 🚀 **Meet Aisha: The Cloud Defender**
+
+Aisha works at **FinSecure Ltd.**, a company that takes **security** as seriously as banking passwords. Her job today? Set up a virtual machine for their **mobile banking app backend**, but more importantly — **make sure nobody accidentally deletes or messes with it**.
+
+She logs into the **Azure Portal**, clicks on **Create a Resource**, and sets up a shiny new **Ubuntu Virtual Machine** called **MyLabVM** in a resource group named **rg-labresources**.
+
+---
+
+### 🛑 **Oops-Proofing with a Delete Lock**
+
+Once the VM is running, Aisha scratches her head and says,
+*"What if someone deletes this by mistake? Yikes!"*
+
+So she adds a **Delete Lock** named **VMDeleteLock** to the virtual machine. This tells Azure:
+**"Don't let anyone delete this resource unless they remove this lock first!"**
+
+Even high-level admins can’t delete it without removing the lock.
+👏 Smart move, Aisha!
+
+---
+
+### 🧊 **Freezing the Whole Group**
+
+Now Aisha goes one step further.
+The whole resource group is under audit next week, and **nobody should be changing anything**.
+
+She adds a **Read-Only Lock** named **RGReadOnly** to the entire **rg-labresources** group.
+This turns the group into a “look-but-don’t-touch” zone.
+
+Anyone trying to change, delete, or modify anything in that group?
+🚫 **Blocked. Access denied!**
+
+---
+
+### ✅ **Mission Accomplished**
+
+Aisha smiles as she leans back in her chair. Her infrastructure is live, secure, and **accident-proof**.
+She’s not just a cloud engineer — she’s a **cloud guardian**. 🔐
+
+Later, once the audit is over, she can simply **remove the locks**, and everything’s back to normal.
+
+---
+
+### 💡 **Moral of the Story**
+
+**Azure Resource Locks** are like safety caps — they protect you from **oops-moments** in the cloud. Whether it’s a production VM or a full resource group, **locking** your assets helps maintain **security, stability, and compliance**.
+
+---
 ---
 ## Lab-Based Conceptual MCQs
 
@@ -303,5 +356,205 @@ Once the audit period ends or the infrastructure is no longer needed, Aisha remo
 **Correct answer: (c)**  
 **Explanation**: If a pipeline tries to update or delete a locked resource, the operation will fail, as the lock enforces protection against those actions regardless of deployment method.
 
+---
+---
+## Professional Job Interview Questions – AZ-104 Labs
+
+### Lab Scenario: Creating Azure Resource Locks
+
+1. **Aisha has deployed a production VM in Azure and wants to ensure it is not accidentally deleted by another team member. What is the most appropriate solution she should apply?**
+
+(a) Configure RBAC with read-only permissions for all users  
+(b) Apply a **Delete Lock** to the VM  
+(c) Disable the VM from the portal  
+(d) Move the VM to a separate subscription
+
+**Correct answer: (b)**  
+A **Delete Lock** ensures that even users with high privileges cannot delete the resource unless the lock is explicitly removed.
+
+---
+
+2. **A company undergoing a security audit wants to ensure that no changes are made to an entire resource group. What should an administrator do?**
+
+(a) Remove all user permissions temporarily  
+(b) Enable resource diagnostics logging  
+(c) Apply a **Read-only Lock** on the resource group  
+(d) Set the subscription to read-only mode
+
+**Correct answer: (c)**  
+A **Read-only Lock** on the resource group restricts any modifications to resources within that group during the audit.
+
+---
+
+3. **Which of the following best describes the effect of a ‘Read-only’ lock applied to a resource group?**
+
+(a) Users can delete resources but cannot update them  
+(b) Users can read and update resources but not delete them  
+(c) Users can only view resources; updates and deletions are blocked  
+(d) Users can update resources but are denied reading access
+
+**Correct answer: (c)**  
+A **Read-only Lock** restricts users from modifying or deleting resources, allowing only view operations.
+
+---
+
+4. **An engineer applied a 'Delete' lock on a VM but noticed that automation scripts still failed to delete it. Why did this happen?**
+
+(a) The VM was in use by another resource  
+(b) A **Delete Lock** prevents deletion regardless of user identity  
+(c) The script lacked contributor access  
+(d) The VM was part of a backup policy
+
+**Correct answer: (b)**  
+A **Delete Lock** blocks deletion of the resource even if the action comes from automation or users with contributor roles.
+
+---
+
+5. **What is a possible limitation of using resource locks in a DevOps CI/CD pipeline?**
+
+(a) They increase billing costs  
+(b) They interfere with automation that modifies or deletes resources  
+(c) They require Azure CLI only  
+(d) They reduce performance of VMs
+
+**Correct answer: (b)**  
+**Resource Locks** can block automation processes like deployments or deletions, requiring manual lock removal before scripts proceed.
+
+---
+
+6. **Which Azure role is still affected by resource locks, regardless of its elevated privileges?**
+
+(a) Owner  
+(b) Contributor  
+(c) Security Reader  
+(d) Global Administrator
+
+**Correct answer: (a)**  
+Even users with the **Owner** role cannot delete or modify a locked resource unless the lock is explicitly removed.
+
+---
+
+7. **Your organization wants to ensure that no one modifies a virtual network during the testing phase. Which strategy should be used?**
+
+(a) Disable the network interface  
+(b) Apply a **Read-only Lock** on the virtual network  
+(c) Deny write permissions using IAM  
+(d) Remove NSGs temporarily
+
+**Correct answer: (b)**  
+Applying a **Read-only Lock** prevents any changes to the virtual network configuration while still allowing read access.
+
+---
+
+8. **A junior admin accidentally removed a resource lock while trying to free up unused resources. How can an organization prevent such issues?**
+
+(a) Use a more complex naming convention for locks  
+(b) Enable alerting for resource deletions  
+(c) Use role-based access control to restrict lock management  
+(d) Disable lock removal in Azure policy
+
+**Correct answer: (c)**  
+Restricting permissions using **Role-Based Access Control (RBAC)** ensures only trusted users can modify or remove locks.
+
+---
+
+9. **You’re tasked with deploying critical production resources that must not be modified until further notice. Which two actions together should you take?**
+
+(a) Disable all outbound ports and alert on usage  
+(b) Assign a read-only role and apply **resource locks**  
+(c) Use Azure Policy to deny all changes  
+(d) Place resources in a separate VNet with traffic restrictions
+
+**Correct answer: (b)**  
+Combining **read-only RBAC roles** with **resource locks** provides a strong defense against accidental or unauthorized changes.
+
+---
+
+10. **Which tool or interface is commonly used to apply and manage resource locks in Azure?**
+
+(a) Network Security Group  
+(b) Azure CLI and Azure Portal  
+(c) Power BI  
+(d) Azure Advisor
+
+**Correct answer: (b)**  
+**Resource Locks** can be created and managed using either the **Azure Portal** or **Azure CLI**, offering flexibility for administrators.
+
+---
+---
+**Here's a **comic-style summary** of the Azure lab scenario on **Creating Azure Resource Locks**, crafted in a fun, easy-to-follow way for a general audience:**
+
+---
+
+### **🔐 Comic-Style Summary: Lock It Down with Confidence!**
+
+👩‍💻 **Meet Aisha**, the brilliant cloud engineer at FinSecure Ltd. Her mission? To set up a secure **Ubuntu virtual machine** for a mobile banking backend — but with one big twist: **no one should accidentally delete or tamper with it**!
+
+🚀 Aisha jumps into the **Azure Portal**, spins up a shiny new VM called **MyLabVM**, and sets it to run on **Ubuntu 20.04 LTS**. It's fast, stable, and ready for the banking APIs. She secures it with a username and password — just like locking the front door before a party.
+
+🔒 But wait! To keep this important server safe, Aisha applies a **Delete Lock**. Now, even the most powerful team member can’t hit “Delete” on the VM unless they remove the lock. It’s like putting a “DO NOT TOUCH” sticker on the server!
+
+🧱 Not done yet, she goes to the **Resource Group** and adds a **Read-Only Lock**. This freezes all resources inside — no changes, no funny business. It’s like putting the whole toolbox behind glass during an audit.
+
+🎯 With these **Azure Resource Locks** in place, Aisha ensures the infrastructure is **safe, compliant, and audit-proof**. She’s the hero the backend didn’t know it needed — and her team sleeps better knowing nothing critical will be deleted by mistake.
+
+---
+---
+## Text-Based Diagram for the Lab: "Creating Azure Resource Locks"
+
+```plaintext
++--------------------------------------------------+
+|          Start: Logged into Azure Portal         |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|    Create a Virtual Machine (VM)                 |
+|    - Name: MyLabVM                               |
+|    - OS: Ubuntu Server 20.04 LTS                 |
+|    - Size: B2s                                   |
+|    - Admin: LabUser with password                |
+|    - Disk: Standard SSD                          |
+|    - Resource Group: rg-labresources             |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|    Apply a Delete Lock on the VM                 |
+|    - Navigate to: MyLabVM > Settings > Locks     |
+|    - Add Lock:                                   |
+|        • Name: VMDeleteLock                      |
+|        • Type: Delete                            |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|    Apply a Read-Only Lock on the Resource Group  |
+|    - Navigate to: rg-labresources > Locks        |
+|    - Add Lock:                                   |
+|        • Name: RGReadOnly                        |
+|        • Type: Read-only                         |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|       Outcome: Resources are Protected           |
+|    - VM cannot be deleted                        |
+|    - Entire resource group is locked for edits   |
+|    - Ensures compliance and uptime               |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|         Final Step: Remove Locks (if needed)     |
+|         after audit or before cleanup            |
++--------------------------------------------------+
+                          |
+                          v
++--------------------------------------------------+
+|              End of Lab Workflow                 |
++--------------------------------------------------+
+```
+---
 ---
 

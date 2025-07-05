@@ -116,6 +116,106 @@ Delete all the resources.
 ---
 ---
 ---
+# Lab 6: Network Access to Storage Accounts
+**Date:** 2025-07-05  
+**Duration:** 1h 0m  
+
+---
+
+### After logging in with your credentials:
+
+---
+
+### ✅ Create a Virtual Network
+
+1. Navigate to **Create a resource** and search for **Virtual Network**.
+2. Click **Create** and fill in the following:
+   - **Resource Group**: `rg-learntech-naveed`
+   - **Virtual Network Name**: `vnet-ncloudedge-west1`
+   - **Region**: West Europe
+3. Go to the **IP Addresses** tab:
+   - Remove the default address space.
+   - Add a new **IPv4 address space**.
+   - Click **+ Add a Subnet** and set:
+     - **Subnet Name**: `subnet-nxt-app`
+     - **Address Range**: `10.0.0.0/24`
+4. Click **Review + Create**, then **Create**.
+
+---
+
+### ✅ Create a Storage Account with a Private Endpoint
+
+1. Go to **Storage accounts** and click **Create**.
+2. In the **Basics** tab:
+   - **Resource Group**: `rg-learntech-naveed`
+   - **Storage Account Name**: `stgnxtnav001`
+   - **Region**: West Europe
+   - **Performance**: Standard
+   - **Redundancy**: GRS (default)
+3. Go to the **Networking** tab:
+   - **Network access**: Select **Disable public access** and **use private access**
+   - Click **+ Add private endpoint** and configure:
+     - **Name**: `pe-nxtblob01`
+     - **Sub-resource**: `blob`
+     - **Virtual Network**: `vnet-ncloudedge-west1`
+     - **Subnet**: `subnet-nxt-app`
+4. Click **OK**, then **Review + Create**, and finally **Create**.
+5. Once deployed, go to the resource and select **Access keys**.
+   - Reveal and copy the **connection string** for **Key 1** for later use.
+
+---
+
+### ✅ Create a Virtual Machine
+
+1. Search for and open **Virtual Machines**, then click **+ Create**.
+2. On the **Basics** tab:
+   - **Resource Group**: `rg-learntech-naveed`
+   - **VM Name**: `vm-ncloudedge-access`
+   - **Region**: West Europe
+   - **Image**: Windows Server 2019 Datacenter - Gen2
+   - **Size**: Standard_B2s
+   - **Username**: `cloudadmin`
+   - **Password**: Set and confirm
+   - **Inbound Ports**: Allow RDP (3389)
+3. On the **Disks** tab:
+   - Select **OS disk type**: Standard SSD
+4. On the **Networking** tab:
+   - **Virtual Network**: `vnet-ncloudedge-west1`
+   - **Subnet**: `subnet-nxt-app`
+5. Click **Review + Create**, then **Create**.
+
+---
+
+### ✅ Access Storage Account from the Virtual Machine
+
+1. Open **Virtual Machines** and select `vm-ncloudedge-access`.
+2. Click **Connect > RDP** and download the RDP file.
+3. Use the downloaded file to connect. When prompted:
+   - Click **More choices > Use a different account**
+   - Enter your VM credentials
+   - Accept the certificate warning to continue.
+4. Once inside the VM, open **PowerShell** and run:
+   ```
+   nslookup stgnxtnav001.blob.core.windows.net
+   ```
+5. In the **Start** menu, open **Server Manager > Local Server**.
+   - Turn off **IE Enhanced Security Configuration**
+6. Download and install **Azure Storage Explorer** inside the VM.
+7. In **Storage Explorer**:
+   - Select **Connect to Azure resources**
+   - Choose **Storage account or service > Connection string**
+   - Paste the **connection string** copied earlier
+   - Click **Next**, verify details, then **Connect**
+   - Browse to your storage account and access **Blob Containers > $logs**
+
+---
+
+### ✅ Final Step
+**Delete all the resources.**
+
+---
+---
+---
 
 ### **Purpose of the Lab**
 

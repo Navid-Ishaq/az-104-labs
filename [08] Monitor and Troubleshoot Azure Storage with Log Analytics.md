@@ -2,121 +2,157 @@
 
 **Duration:** 1h 0m
 ---
+---
+---
+---
+
+## ✅ Azure Lab Steps: **Monitor and Troubleshoot Azure Storage with Log Analytics**
+
 **After logging in with your credentials:**
 
-### 1. Create a Storage Account
+---
 
-1. In the portal search bar, enter **Storage accounts** and select it.
-2. Click **Create**.
-3. In the **Basics** tab:
+### 🔹 Step 1: Create a Storage Account
 
-   * Choose the available **Subscription**.
-   * Select the available **Resource group**.
-   * Enter a unique **Storage account name** (lowercase letters and numbers only).
-   * Choose the default **Region**.
-   * Set **Performance** to **Standard**.
-   * Set **Redundancy** to **Geo-redundant storage (GRS)**.
-4. Go to the **Advanced** tab and ensure the **Access tier** is set to **Hot**.
-5. Click **Review + create**, then **Create**.
-6. Once deployment completes, select **Go to resource**.
+1. In the Azure Portal, search for **Storage accounts** and select it.
+2. Click **+ Create**.
+3. Under the **Basics** tab:
+
+   * **Subscription**: Select your active subscription.
+   * **Resource group**: Choose or create `rg-cloudlabx-naveed`.
+   * **Storage account name**: Use a globally unique name such as `stcloudopsnaveed`.
+   * **Region**: Select `East US`.
+   * **Performance**: Choose `Standard`.
+   * **Redundancy**: Select `Geo-redundant storage (GRS)`.
+4. Go to the **Advanced** tab:
+
+   * Ensure **Access tier** is set to `Hot`.
+5. Click **Review + create**, then click **Create**.
+6. After deployment, select **Go to resource**.
 
 ---
 
-### 2. Add a Blob Container
+### 🔹 Step 2: Add a Blob Container
 
-1. In the storage account, under **Data storage**, select **Containers**.
+1. In the storage account pane, under **Data storage**, select **Containers**.
 2. Click **+ Container**.
-3. Name the container **monitor-blobs-container**.
-4. Leave other settings at default and click **Create**.
+3. Name it `monitor-blobs-container`.
+4. Leave all other settings as default and click **Create**.
 
 ---
 
-### 3. Upload Files to the Blob Container
+### 🔹 Step 3: Upload Files to the Blob Container
 
-1. On your local computer, create three text files:
+1. On your local computer, create three `.txt` files:
 
-   * `sample1.txt`:
+   * **sample1.txt**:
 
      ```
      Sample File 1 - Blob Monitoring Test  
      This is a test file for upload.
      ```
-   * `sample2.txt`:
+
+   * **sample2.txt**:
 
      ```
      Sample File 2 - Blob Monitoring Test  
      This is another test file for upload.
      ```
-   * `sample3.txt`:
+
+   * **sample3.txt**:
 
      ```
      SampleFile3-BlobMonitoringTest  
      This is another test file for upload.
      ```
-2. In the Azure portal, return to **monitor-blobs-container**.
+
+2. In the Azure Portal, open `monitor-blobs-container`.
+
 3. Click **Upload** and upload `sample1.txt`.
-4. Wait 1 minute, then upload `sample2.txt`.
-5. Wait another minute, then upload `sample3.txt`.
-6. Wait a few additional minutes to ensure metrics are recorded.
+
+4. Wait **1 minute**, then upload `sample2.txt`.
+
+5. Wait another **minute**, then upload `sample3.txt`.
+
+6. Wait a few more minutes to allow telemetry data to be captured.
 
 ---
 
-### 4. Create a Log Analytics Workspace
+### 🔹 Step 4: Create a Log Analytics Workspace
 
-1. Search for and select **Log Analytics workspaces**.
+1. In the search bar, search for **Log Analytics workspaces**.
 2. Click **+ Create**.
 3. In the **Basics** tab:
 
-   * Choose the same **Subscription** and **Resource group**.
-   * Enter a name like **MonitorLAWorkspace**.
-   * Use the default **Region**.
+   * **Subscription**: Use the same subscription.
+   * **Resource group**: Select `rg-cloudlabx-naveed`.
+   * **Name**: Enter `log-ncloudedge-naveed`.
+   * **Region**: Use `East US`.
 4. Click **Review + create**, then **Create**.
 
 ---
 
-### 5. Create a Diagnostic Setting for the Storage Account
+### 🔹 Step 5: Create a Diagnostic Setting
 
-1. Open your **Storage account**.
+1. Go to the storage account `stcloudopsnaveed`.
 2. Under **Monitoring**, click **Diagnostic settings**.
-3. Select the **blob** service if prompted.
+3. If prompted, select the **blob service**.
 4. Click **+ Add diagnostic setting**.
-5. Provide a name (e.g., `BlobStorageDiagnostics`).
-6. Under **Categories**, select **StorageRead**.
-7. Under **Destination**, select **Send to Log Analytics workspace** and choose **MonitorLAWorkspace**.
+5. Provide a name such as `diag-blob-naveed`.
+6. Under **Category details**, check `StorageRead`.
+7. Under **Destination details**, select `Send to Log Analytics workspace`, and then choose `log-ncloudedge-naveed`.
 8. Click **Save**.
 
 ---
 
-### 6. Download a Blob to Generate Activity
+### 🔹 Step 6: Generate Log Activity by Downloading a Blob
 
-1. Open **Containers** in the storage account.
-2. Select **monitor-blobs-container**.
-3. Locate one of the uploaded files.
-4. Click the **ellipsis (...)** next to the file and choose **Download**.
+1. Go back to **Containers**, and open `monitor-blobs-container`.
+2. Locate one of the uploaded files (e.g., `sample2.txt`).
+3. Click the ellipsis `...` next to the file and select **Download**.
 
 ---
 
-### 7. View Logged Activity with Log Analytics
+### 🔹 Step 7: Query Logs in Log Analytics
 
 1. In the storage account, under **Monitoring**, click **Logs**.
-2. Close the **Queries hub**.
+2. Close the **Queries hub**, if open.
 3. Switch to **KQL mode**.
 4. Paste the following query:
 
-   ```kusto
-   StorageBlobLogs
-   | where TimeGenerated > ago(1h) and OperationName == "GetBlob"
-   | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
-   ```
+```kusto
+StorageBlobLogs
+| where TimeGenerated > ago(1h) and OperationName == "GetBlob"
+| project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
+```
+
 5. Click **Run**.
-6. View the results to confirm that the download was logged.
+6. You should see the results showing the blob read operations performed earlier.
 
 ---
 
-**Delete all the resources.**
+### 🔚 Final Step
+
+**Delete all the resources** (Storage account, Log Analytics workspace, and resource group) to avoid any charges.
 
 ---
 ---
+---
+
+
+
+
+---
+---
+---
+
+
+
+---
+---
+---
+
+
 ### **Structured Summary: Monitor and Troubleshoot Azure Storage with Log Analytics**
 
 ---

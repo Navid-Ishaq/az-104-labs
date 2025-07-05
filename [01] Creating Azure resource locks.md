@@ -183,54 +183,64 @@ Once the audit period ends or the infrastructure is no longer needed, Aisha remo
 
 ## 🧑‍💻 Comic-Style Summary: **“Lock It Before You Lose It!”**
 
----
+### 🧑‍💻 Meet Aisha — The Cloud Hero!
 
-### 🚀 **Meet Aisha: The Cloud Defender**
-
-Aisha works at **FinSecure Ltd.**, a company that takes **security** as seriously as banking passwords. Her job today? Set up a virtual machine for their **mobile banking app backend**, but more importantly — **make sure nobody accidentally deletes or messes with it**.
-
-She logs into the **Azure Portal**, clicks on **Create a Resource**, and sets up a shiny new **Ubuntu Virtual Machine** called **MyLabVM** in a resource group named **rg-labresources**.
+Aisha is a **cloud engineer** working at a company that handles **sensitive financial data**. Her boss asks her to make sure their new **Linux server in Azure** is safe and can't be deleted or changed by mistake. That’s a big responsibility!
 
 ---
 
-### 🛑 **Oops-Proofing with a Delete Lock**
+### 🛠️ Step 1: Building the Server
 
-Once the VM is running, Aisha scratches her head and says,
-*"What if someone deletes this by mistake? Yikes!"*
+Aisha logs into the **Azure Portal** and creates a **Virtual Machine (VM)**.
+She picks:
 
-So she adds a **Delete Lock** named **VMDeleteLock** to the virtual machine. This tells Azure:
-**"Don't let anyone delete this resource unless they remove this lock first!"**
+* **Ubuntu Server** (stable and secure),
+* A cost-friendly size called **B2s**,
+* And names it **MyLabVM** inside the **rg-labresources** group.
 
-Even high-level admins can’t delete it without removing the lock.
-👏 Smart move, Aisha!
-
----
-
-### 🧊 **Freezing the Whole Group**
-
-Now Aisha goes one step further.
-The whole resource group is under audit next week, and **nobody should be changing anything**.
-
-She adds a **Read-Only Lock** named **RGReadOnly** to the entire **rg-labresources** group.
-This turns the group into a “look-but-don’t-touch” zone.
-
-Anyone trying to change, delete, or modify anything in that group?
-🚫 **Blocked. Access denied!**
+✅ **Why?** This server will run banking services, so it needs to be reliable!
 
 ---
 
-### ✅ **Mission Accomplished**
+### 🔒 Step 2: Lock the VM Against Deletion
 
-Aisha smiles as she leans back in her chair. Her infrastructure is live, secure, and **accident-proof**.
-She’s not just a cloud engineer — she’s a **cloud guardian**. 🔐
+Now Aisha adds a **Delete Lock** to the VM.
+She goes to the VM settings, clicks **Locks**, and adds:
 
-Later, once the audit is over, she can simply **remove the locks**, and everything’s back to normal.
+* **Name**: `VMDeleteLock`
+* **Type**: `Delete`
+
+✅ **Why?** Even if someone tries to delete the VM by accident or during cleanup — Azure will say, "Nope!" This keeps the server safe.
 
 ---
 
-### 💡 **Moral of the Story**
+### 🧊 Step 3: Freeze the Entire Resource Group
 
-**Azure Resource Locks** are like safety caps — they protect you from **oops-moments** in the cloud. Whether it’s a production VM or a full resource group, **locking** your assets helps maintain **security, stability, and compliance**.
+Aisha wants to be extra careful. So, she goes to the **resource group** that contains the VM and adds a **Read-Only Lock**.
+
+* **Name**: `RGReadOnly`
+* **Type**: `Read-only`
+
+✅ **Why?** This lock makes sure that **nothing inside the group can be changed or deleted** during an important company audit. It’s like putting everything in a glass case!
+
+---
+
+### 🧠 Why This Is Smart
+
+Aisha’s use of **Azure Resource Locks** is a great example of **cloud governance**. In real-life work, especially in industries like finance, **mistakes can be costly**. These locks give protection and peace of mind to the entire team.
+
+---
+
+### ✅ Mission Accomplished
+
+Thanks to Aisha:
+
+* The VM was created successfully.
+* **No one can delete it accidentally.**
+* **All changes to the group are blocked** until they’re ready.
+* The company’s cloud environment is safe and compliant!
+
+🎉 Aisha nailed it! She's not just a cloud engineer — she's a **cloud superhero**!
 
 ---
 ---

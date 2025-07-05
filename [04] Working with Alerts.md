@@ -360,6 +360,152 @@ Lab-Based Conceptual MCQs
 ---
 ---
 ---
+
+## Lab-Based Conceptual MCQs
+
+---
+
+### 1.
+
+Naveed is setting up a **Windows Server 2022** virtual machine in Azure for a financial system. To improve security, he chooses to **disable public inbound ports** during deployment. Why is this considered a best practice?
+
+(a) It improves performance for internal network traffic
+(b) It reduces billing costs related to public IPs
+(c) It limits external attack exposure by blocking unsolicited access
+(d) It simplifies Azure region selection during setup
+
+**Correct answer: (c)**
+Disabling public inbound ports helps minimize exposure to the internet and reduces the attack surface, which enhances the VM’s security posture.
+
+---
+
+### 2.
+
+After creating a virtual machine named **resizeVM**, Naveed wants to be notified if any user performs **administrative operations** such as restarting or stopping the VM. Which Azure feature should he use to detect such actions?
+
+(a) **Azure Resource Manager** templates
+(b) **Azure Activity Log** alert signal
+(c) **Azure Advisor** recommendations
+(d) **Azure Key Vault** logging
+
+**Correct answer: (b)**
+The **Activity Log** provides a record of all control-plane operations, such as restarts or deletions. Naveed can configure an alert based on the **All Administrative operations** signal from this log.
+
+---
+
+### 3.
+
+When defining the **scope** of an alert rule in Azure Monitor, Naveed selects a specific virtual machine. What is the role of the scope in an alert rule configuration?
+
+(a) It defines the pricing tier for alerts
+(b) It determines the region where alerts will be applied
+(c) It limits the monitoring to a specific Azure resource
+(d) It specifies how long the alert will be active
+
+**Correct answer: (c)**
+The **scope** determines which Azure resource the alert rule monitors. In this case, Naveed applies it to the **resizeVM** to receive alerts related to its activity.
+
+---
+
+### 4.
+
+Naveed wants to notify both himself and another administrator by **email** when a critical VM change is detected. What Azure feature enables him to configure recipients and communication channels?
+
+(a) **Role-Based Access Control (RBAC)**
+(b) **Virtual Network Peering**
+(c) **Action Group**
+(d) **Azure Blueprints**
+
+**Correct answer: (c)**
+An **Action Group** defines who gets notified and how—via email, SMS, push notification, or webhook—when an alert is triggered.
+
+---
+
+### 5.
+
+Why does Naveed choose the signal **All Administrative operations** instead of selecting individual events like "Restart VM" or "Stop VM" when creating the alert condition?
+
+(a) It provides finer control over billing alerts
+(b) It allows bulk scheduling of routine restarts
+(c) It simplifies monitoring by covering all admin-level changes
+(d) It avoids using custom scripts for alerts
+
+**Correct answer: (c)**
+Choosing **All Administrative operations** ensures a wide net is cast for detecting any significant operational changes without needing multiple alerts for each type.
+
+---
+
+### 6.
+
+After setting up an alert, Naveed restarts the virtual machine to test whether his alert setup works. Why is this step important in cloud monitoring practice?
+
+(a) It ensures the alert group has correct billing tags
+(b) It validates that the alert logic and notification work as expected
+(c) It clears out any hidden IP configuration issues
+(d) It adds diagnostic logs to the VM image
+
+**Correct answer: (b)**
+Testing the alert by triggering a relevant event (like a restart) confirms that both the **alert rule** and **action group** function properly.
+
+---
+
+### 7.
+
+While creating an **action group**, Naveed configures only email notifications. Later, he wants to automate a script execution whenever the alert is triggered. What should he add to the action group?
+
+(a) Add a **metric alert**
+(b) Add a **manual trigger**
+(c) Add a **webhook or automation runbook**
+(d) Add a **resource lock**
+
+**Correct answer: (c)**
+Action groups can be expanded with additional actions, including **webhooks** or **runbooks**, to automate responses to incidents.
+
+---
+
+### 8.
+
+Which of the following Azure tools allows Naveed to monitor the operational and configuration changes made across Azure resources, including virtual machines?
+
+(a) **Azure Policy**
+(b) **Azure Monitor - Activity Log**
+(c) **Azure Security Center**
+(d) **Azure Site Recovery**
+
+**Correct answer: (b)**
+The **Activity Log** is the go-to source for tracking control-plane operations such as VM creation, restart, or deletion across Azure resources.
+
+---
+
+### 9.
+
+Naveed configures the **alert rule** but forgets to **assign an action group**. What will be the consequence of this omission?
+
+(a) The alert will auto-restart the VM
+(b) The alert rule will fail to deploy
+(c) The alert will trigger silently without notifying anyone
+(d) Azure will prompt to assign a backup policy
+
+**Correct answer: (c)**
+Without an **action group**, the alert may be triggered, but there will be **no notifications** or automated responses — defeating the purpose of proactive monitoring.
+
+---
+
+### 10.
+
+After the alert setup, Naveed receives an email saying, “Administrative action detected on resizeVM.” What does this confirm?
+
+(a) The VM auto-scaled based on traffic
+(b) The Azure Backup job completed successfully
+(c) The alert rule and notification system are functioning as intended
+(d) The VM diagnostic logs were reset
+
+**Correct answer: (c)**
+Receiving a timely notification indicates that the **alert rule**, **activity log condition**, and **action group** are properly configured and operating correctly.
+
+---
+---
+---
 ## Professional Job Interview Questions – AZ-104 Labs
 
 ### 1. Naveed wants to ensure his team is notified whenever someone restarts a critical production VM. Which Azure feature should he use to detect such operational changes?

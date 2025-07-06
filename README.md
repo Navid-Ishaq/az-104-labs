@@ -6,10 +6,12 @@ This repository contains 21 practical labs aligned with the Microsoft AZ-104 cer
 
 
 
-**Note 1:** 
-All resource names used in this lab (e.g., vm-ncloudedge-web01, rg-learntech-naveed) follow a fictional, learner-branded naming convention for clarity and structure. You may replace these with names suited to your own environment or organization.
+> 📘 **Important Notes**
 
-> 📘 **Note 2:**  
-> All character names (e.g., *Alex*, *Taylor*, *Jordan*) and organization names (e.g., *CloudCore Labs*, *NextGenOps*, *SkyBridgeTech*, etc.) used in this repository are **purely fictional** and intended for **educational and illustrative purposes only**.  
-> These names help demonstrate Azure lab concepts in a relatable, real-world context.  
-> Any resemblance to real individuals or companies is purely coincidental.
+> **Note 1:**  
+> All resource names used in this lab (e.g., `vm-ncloudedge-web01`, `rg-learntech-naveed`) follow a **fictional, learner-branded naming convention** designed to promote clarity and structure in educational content. You are encouraged to replace these with names suited to your own environment, organization, or naming policies.
+
+> **Note 2:**  
+> All character names (e.g., *Alex*, *Taylor*, *Jordan*) and organization names (e.g., *CloudCore Labs*, *NextGenOps*, *SkyBridgeTech*) used throughout this repository are **entirely fictional** and intended for **educational and illustrative purposes only**.  
+> Any resemblance to actual persons or organizations is purely coincidental.
+

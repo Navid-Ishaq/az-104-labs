@@ -1,4 +1,4 @@
-# Key Rotation in Azure Key Vault
+# Lab 22: Key Rotation in Azure Key Vault
 
 After logging in with your credentials:
 

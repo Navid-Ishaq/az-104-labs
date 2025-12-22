@@ -4,7 +4,6 @@
 > Sometimes it begins with being thrown into the river — and learning how to swim.**
 
 ---
-# 🌊 When Artificial Intelligence Threw Me Into the Azure River
 
 **Fear, clarity, and becoming an Azure Administrator (AZ-104)**
 

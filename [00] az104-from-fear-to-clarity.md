@@ -206,3 +206,13 @@ https://www.youtube.com/watch?v=seC34hYeXBU
 
 📖 **Blog Post — Thrown Into the Azure River by AI (AZ-104)**  
 https://siraataiacademy.blogspot.com/2025/12/thrown-into-azure-river-by-ai-az-104.html
+
+---
+
+## 🔗 Connect on LinkedIn
+
+You can find my professional profile and ongoing learning journey here:
+
+👉 **LinkedIn:**  
+https://www.linkedin.com/in/muhammad-naveed-ishaque-68b638279/
+

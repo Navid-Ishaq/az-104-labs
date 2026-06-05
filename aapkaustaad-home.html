@@ -1,0 +1,558 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
+<div style="height:90px;"></div>
+
+<nav class="detleng-nav">
+
+<div class="detleng-logo">
+<span style="font-size:28px;">   
+<span style="color:blue;">✦</span> <strong style="color:black;">AL-NOOR</strong> <span style="color:blue;">✦</span>
+</span>
+</div>
+
+<input type="checkbox" id="menu-toggle">
+
+<label for="menu-toggle" class="menu-icon">
+☰ MENU
+</label>
+
+<div class="menu-links">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="courses.html">Courses</a>
+<a href="success.html">Success</a>
+<a href="policies.html">Policies</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+</nav>
+
+<style>
+
+
+
+  /* ===========================
+   AL-NOOR Professional Menu
+=========================== */
+
+.detleng-nav{
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+
+    background:#ffffff;
+
+    border-bottom:1px solid #ddd;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+
+    z-index:99999;
+
+    padding:15px 20px;
+
+    box-sizing:border-box;
+
+}
+
+/* Logo Left */
+
+.detleng-logo{
+
+    position:absolute;
+
+    left:20px;
+    top:15px;
+
+    font-weight:700;
+
+}
+
+/* Hide Checkbox */
+
+#menu-toggle{
+
+    display:none;
+
+}
+
+/* Menu Icon */
+
+.menu-icon{
+
+    display:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    float:right;
+
+    font-weight:700;
+
+}
+
+/* Desktop Menu */
+
+.menu-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-top:10px;
+
+}
+
+.menu-links a{
+
+    text-decoration:none;
+
+    color:#111;
+
+    font-weight:600;
+
+    font-family:"Segoe UI", Arial, sans-serif;
+
+}
+
+.menu-links a:hover{
+
+    color:#0066ff;
+
+}
+
+/* ===========================
+   AL-NOOR Mobile Version
+=========================== */
+
+@media (max-width:768px){
+
+    .menu-icon{
+
+        display:block;
+
+        text-align:right;
+
+        font-size:28px;
+
+    }
+
+    .menu-links{
+
+        display:none;
+
+        flex-direction:column;
+
+        position:absolute;
+
+        top:70px;
+
+        right:15px;
+
+        background:#ffffff;
+
+        padding:20px;
+
+        border-radius:12px;
+
+        box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+        min-width:140px;
+
+        text-align:right;
+
+        gap:15px;
+
+        z-index:99999;
+
+    }
+
+    .menu-links a{
+
+        display:block;
+
+        font-size:18px;
+
+        color:#111;
+
+    }
+
+    #menu-toggle:checked ~ .menu-links{
+
+        display:flex;
+
+    }
+
+}
+
+ /* ===========================
+   AL-NOOR Readability
+=========================== */
+
+body{
+
+    font-family:"Segoe UI", Arial, sans-serif;
+
+    color:#222;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+}
+
+/* Paragraphs */
+
+p{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#333;
+
+    margin-bottom:20px;
+
+}
+
+/* Lists */
+
+li{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#333;
+
+}
+
+/* Headings */
+
+h1{
+
+    font-size:52px;
+
+    color:#111;
+
+}
+
+h2{
+
+    font-size:38px;
+
+    color:#111;
+
+}
+
+h3{
+
+    font-size:28px;
+
+    color:#111;
+
+}
+
+/* Mobile Headings */
+
+@media (max-width:768px){
+
+    h1{
+        font-size:42px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    h3{
+        font-size:24px;
+    }
+
+}
+
+</style>
+
+<style>
+
+/* ===========================
+   AL-NOOR Content Layout
+=========================== */
+
+.detleng-content{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px;
+}
+
+.detleng-content p{
+    max-width:850px;
+    font-size:18px;
+    line-height:1.9;
+    color:#333333;
+    margin-bottom:20px;
+}
+
+.detleng-content ul{
+    padding-left:25px;
+}
+
+.detleng-content li{
+    font-size:18px;
+    line-height:1.8;
+}
+
+h1{
+    margin-top:0;
+    margin-bottom:20px;
+}
+
+.detleng-content h1{
+    font-size:52px;
+    color:#111111;
+}
+
+.detleng-content h2{
+    font-size:38px;
+    color:#111111;
+    margin-top:50px;
+}
+
+.detleng-content h3{
+    font-size:28px;
+    color:#111111;
+    margin-top:20px;
+}
+
+.detleng-content h4{
+    font-size:22px;
+    color:#111111;
+    margin-top:25px;
+}
+
+.detleng-content hr{
+    margin:40px 0;
+    border:none;
+    border-top:1px solid #dddddd;
+}
+
+@media (max-width:768px){
+
+.detleng-content{
+    padding:15px;
+}
+
+.detleng-content h1{
+    font-size:42px;
+}
+
+.detleng-content h2{
+    font-size:30px;
+}
+
+.detleng-content h3{
+    font-size:24px;
+}
+
+.detleng-content p,
+.detleng-content li{
+    font-size:17px;
+}
+
+}
+
+</style>
+
+<section class="detleng-content">
+
+/* in this place put all content */
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="
+max-width:900px;
+margin:30px auto;
+text-align:center;
+">
+
+<a href="mailto:info@aapkaustaad.com?subject=Course%20Information%20Request&body=Hello%20AL-NOOR%20Team,%0D%0A%0D%0AMy%20Name:%20________________%0D%0ACity:%20________________%0D%0AMobile%20Number:%20________________%0D%0A%0D%0AI%20would%20like%20information%20about%20the%20following%20course:%0D%0A%0D%0ACourse%20Name:%20________________%0D%0A%0D%0APreferred%20Language%20(Spanish/English/Urdu):%20________________%0D%0A%0D%0AAdditional%20Questions:%20________________%0D%0A%0D%0AI%20look%20forward%20to%20receiving%20further%20information.%0D%0A%0D%0AKind%20Regards,%0D%0A________________"
+style="
+display:block;
+background:#000000;
+color:#ffffff;
+font-size:28px;
+font-weight:bold;
+text-decoration:none;
+padding:25px;
+border-radius:8px;
+animation:blink 1.5s infinite;
+">
+
+<span class="detleng-finger">👉</span>
+Get Started with <strong style="color:yellow;">AL-NOOR</strong>
+<span class="detleng-finger">👈</span>
+
+</a>
+
+</div>
+
+</section>
+
+
+<br><br><br>
+
+
+
+
+<style>
+
+/* AL-NOOR Sticky Slogan */
+
+.detleng-slogan-sticky{
+
+    position:fixed;
+
+    right:20px;
+    bottom:80px;
+
+    background:#000000;
+    color:#FFFFFF;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    font-family:Inter,sans-serif;
+    font-size:18px;
+    font-weight:700;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.30);
+
+    z-index:99999;
+
+    white-space:nowrap;
+}
+
+/* Mobile Friendly */
+
+@media (max-width:768px){
+
+.detleng-slogan-sticky{
+
+    right:10px;
+    bottom:65px;
+
+    padding:14px 20px;
+
+    font-size:16px;
+
+    border-radius:10px;
+}
+}
+
+</style>
+
+<div class="detleng-slogan-sticky">
+
+<span style="color:yellow;"> ✦ </span>
+
+<span style="color:white;"> ENROLL </span>
+
+<span style="color:yellow;"> ✦ </span>
+
+<span style="color:white;"> PREPARE </span>
+
+<span style="color:yellow;"> ✦ </span>
+
+<span style="color:white;"> SUCCEED </span>
+
+<span style="color:yellow;"> ✦ </span>
+
+</div>
+
+
+
+
+
+<style>
+/* AL-NOOR Sticky Consultation Button */
+
+.detleng-sticky-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+
+    background:#000000;
+    color:#FFD700;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+    text-decoration:none;
+
+    font-family:Inter,sans-serif;
+    font-size:18px;
+    font-weight:700;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.30);
+
+    z-index:99999;
+
+    transition:all .3s ease;
+}
+
+.detleng-sticky-btn:hover{
+    background:#111111;
+    transform:translateY(-2px);
+}
+
+/* Mobile Friendly */
+@media (max-width:768px){
+
+.detleng-sticky-btn{
+    bottom:10px;
+    right:10px;
+
+    padding:14px 20px;
+
+    font-size:16px;
+
+    border-radius:10px;
+}
+}
+
+</style>
+
+<a class="detleng-sticky-btn"
+href="mailto:info@aapkaustaad.com?subject=Course%20Information%20Request&body=Hello%20AL-NOOR%20Team,%0D%0A%0D%0AMy%20Name:%20________________%0D%0ACity:%20________________%0D%0AMobile%20Number:%20________________%0D%0A%0D%0AI%20would%20like%20information%20about%20the%20following%20course:%0D%0A%0D%0ACourse%20Name:%20________________%0D%0A%0D%0APreferred%20Language%20(Spanish/English/Urdu):%20________________%0D%0A%0D%0AAdditional%20Questions:%20________________%0D%0A%0D%0AI%20look%20forward%20to%20receiving%20further%20information.%0D%0A%0D%0AKind%20Regards,%0D%0A________________">
+
+👉
+<span style="color:white;">Free </span>
+<span style="color:white;">Consultation |</span>
+<span style="color:yellow;"> AL-NOOR</span>
+👈
+
+</a>
+
+</body>
+</html>
+  
+  
